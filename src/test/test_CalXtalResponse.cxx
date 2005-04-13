@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.3 2005/03/02 07:12:46 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.4 2005/04/13 19:12:50 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -76,21 +76,21 @@ StatusCode test_CalXtalResponse::initialize(){
   msglog << MSG::INFO << "initialize" << endreq;
 
   // get cal energy Tool
-  sc = toolSvc()->getTool("XtalEneTool", m_xtalEneTool);
+  sc = toolSvc()->retrieveTool("XtalEneTool", m_xtalEneTool);
   if (sc.isFailure() ) {
     msglog << MSG::ERROR << "  can't create " << "XtalEneTool" << endreq;
     return sc;
   }
 
   // get cal pos Tool
-  sc = toolSvc()->getTool("XtalPosTool", m_xtalPosTool);
+  sc = toolSvc()->retrieveTool("XtalPosTool", m_xtalPosTool);
   if (sc.isFailure() ) {
     msglog << MSG::ERROR << "  can't create " << "XtalPosTool" << endreq;
     return sc;
   }
 
   // get cal adc Tool
-  sc = toolSvc()->getTool("XtalADCTool", m_xtalADCTool);
+  sc = toolSvc()->retrieveTool("XtalADCTool", m_xtalADCTool);
   if (sc.isFailure() ) {
     msglog << MSG::ERROR << "  can't create " << "XtalADCTool" << endreq;
     return sc;
