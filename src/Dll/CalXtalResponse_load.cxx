@@ -3,7 +3,7 @@
  * @brief This is needed for forcing the linker to load all components
  * of the library.
  *
- *  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.2 2005/03/02 07:12:46 fewtrell Exp $
+ *  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.3 2005/04/21 21:44:12 fewtrell Exp $
  */
 
 #include "GaudiKernel/DeclareFactoryEntries.h"
@@ -19,7 +19,7 @@ DECLARE_FACTORY_ENTRIES(CalXtalResponse) {
   
   DECLARE_ALGORITHM( CalXtalRecAlg);
 
-  DLL_DECL_TOOL( XtalADCTool );
+  DLL_DECL_TOOL( XtalDigiTool );
   DLL_DECL_TOOL( XtalEneTool );
   DLL_DECL_TOOL( XtalPosTool );
   
