@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.5 2005/04/13 22:08:30 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.6 2005/06/13 22:42:24 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -216,7 +216,7 @@ StatusCode test_CalXtalResponse::test_xtalEneTool() {
   if ((sc = m_xtalEneTool->calculate(xtalId, rng, rng, 
                                      1000, 1000, energy, 
                                      rngBelowThresh,
-                                     xtalBelowThresh))
+                                     xtalBelowThresh, 0))
       != sc) {
     msglog << MSG::ERROR << "Error calling XtalEneTool::calculate()" << endreq;
     return sc;
