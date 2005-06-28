@@ -8,6 +8,7 @@
 // GLAST INCLUDES
 #include "Event/Digi/CalDigi.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
+#include "Event/TopLevel/Event.h"
 #include "idents/VolumeIdentifier.h"
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 
@@ -27,7 +28,7 @@
     @author           A.Chekhtman
     @author           Zach Fetwrell
 
-    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalXtalRecAlg.h,v 1.2 2005/06/13 22:42:23 fewtrell Exp $
+    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalXtalRecAlg.h,v 1.3 2005/06/24 18:56:41 fewtrell Exp $
 */
 class CalXtalRecAlg : public Algorithm
 {
@@ -84,6 +85,9 @@ class CalXtalRecAlg : public Algorithm
 
   /// pointer to the output data collection in TDS
   Event::CalXtalRecCol* m_calXtalRecCol;
+
+  /// pointer to event Header (evtId, runId, etc...)
+  Event::EventHeader* m_evtHdr;
 
   //-- XML GEOMETRY CONSTANTS --//
   
