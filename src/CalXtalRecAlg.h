@@ -28,18 +28,18 @@
     @author           A.Chekhtman
     @author           Zach Fetwrell
 
-    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalXtalRecAlg.h,v 1.3 2005/06/24 18:56:41 fewtrell Exp $
+    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalXtalRecAlg.h,v 1.4 2005/06/28 16:38:11 fewtrell Exp $
 */
 class CalXtalRecAlg : public Algorithm
 {
  public:
   CalXtalRecAlg(const std::string& name, ISvcLocator* pSvcLocator);
   virtual ~CalXtalRecAlg() {
-	  // make sure optional tuple is closed out
-	  if (m_tupleFile) {
-		  m_tupleFile->Write();
-		  m_tupleFile->Close();
-	  }
+    // make sure optional tuple is closed out
+    if (m_tupleFile) {
+      m_tupleFile->Write();
+      m_tupleFile->Close();
+    }
   }
     
   /// initialize internal data members.
