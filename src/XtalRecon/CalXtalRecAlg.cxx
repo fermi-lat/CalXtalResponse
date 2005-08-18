@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalXtalRecAlg.cxx,v 1.2 2005/06/13 22:42:23 fewtrell Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.1 2005/07/23 03:50:54 fewtrell Exp $
 
 // LOCAL INCLUDES
 #include "CalXtalRecAlg.h"
@@ -164,8 +164,7 @@ StatusCode CalXtalRecAlg::execute()
     if (sc.isFailure()) continue;
 
     // skip any xtal w/ at least one LEX8 range below threshold
-    if (xtalBelowThresh)
-      return StatusCode::SUCCESS;
+    if (xtalBelowThresh) continue;
 
     // add new reconstructed data to the collection
     // release it from the auto_ptr so it is not deleted
