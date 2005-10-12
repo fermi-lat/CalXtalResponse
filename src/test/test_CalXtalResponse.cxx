@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.6 2005/06/13 22:42:24 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.8 2005/07/23 03:52:55 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -44,8 +44,10 @@ private:
   //! number of times called
   int m_count; 
 
-  IXtalRecTool *m_xtalRecTool; ///< pointer to calenergyTool
-  IXtalDigiTool *m_xtalDigiTool; ///< pointer to XtalDigiTool
+  /// pointer to XtalRecTool
+  IXtalRecTool *m_xtalRecTool; 
+  /// pointer to XtalDigiTool
+  IXtalDigiTool *m_xtalDigiTool; 
 
 };
 //------------------------------------------------------------------------
@@ -142,7 +144,7 @@ StatusCode test_CalXtalResponse::test_calCalibSvc() {
 
   // IntNonlin
   const vector<float> *vals;
-  const vector<unsigned> *dacs;
+  const vector<float> *dacs;
   float error;
   if ((sc = pCalCalibSvc->getIntNonlin(xtalId, 
                                        vals, dacs, error)).isFailure()) {
