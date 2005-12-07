@@ -7,9 +7,8 @@
 // GLAST INCLUDES
 #include "Event/Digi/CalDigi.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
+#include "ntupleWriterSvc/INTupleWriterSvc.h"
 
-#include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
-#include "TTree.h"
 
 // EXTLIB INCLUDES
 #include "GaudiKernel/Algorithm.h"
@@ -25,7 +24,7 @@
     @author           A.Chekhtman
     @author           Zach Fetwrell
 
-    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalXtalRecAlg.h,v 1.2 2005/06/13 22:42:23 fewtrell Exp $
+    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.h,v 1.1 2005/07/23 03:50:54 fewtrell Exp $
 */
 class CalXtalRecAlg : public Algorithm
 {
@@ -41,18 +40,6 @@ class CalXtalRecAlg : public Algorithm
  private:
   ///  function for setting pointers to the input and output data in Gaudi TDS
   StatusCode retrieve();
-    
-  /** \brief use XtalRecTool to calculate ene & pos for single xtal
-  
-  Creates single CalXtalRangeRec object which represents the best estimate
-   
-  @param recData pointer to CalXtalRecData object to store reconstructed ene & pos
-  @param digi pointer to CalDigi object with input data
-  */
-  StatusCode xtalCalc(Event::CalXtalRecData &recData,
-                      const Event::CalDigi &digi);
-
-
     
   /// pointer to input data collection in TDS
   Event::CalDigiCol* m_calDigiCol;
@@ -70,15 +57,11 @@ class CalXtalRecAlg : public Algorithm
   StringProperty m_recToolName;
 
   /// name of CalXtalRecTuple file.  Default = "" (no file).
-  StringProperty m_tupleFilename;
+  StringProperty m_tupleName;
   /// store current entry for CalTuple
   CalTupleEntry m_tupleEntry;
-  /// pointer to XtalRecToolTuple file.
-  TFile *m_tupleFile;
-  /// pointer to tuple object
-  TBranch *m_tupleBranch;
-  /// pointer to tuple tree object
-  TTree   *m_tupleTree;
+  /// pointer to tupleWriterSvc
+  INTupleWriterSvc *m_tupleWriterSvc;
 };
 
 #endif
