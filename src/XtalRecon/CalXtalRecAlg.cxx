@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.3 2005/10/12 18:23:33 fewtrell Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.4 2005/12/07 20:41:43 fewtrell Exp $
 
 // LOCAL INCLUDES
 #include "CalXtalRecAlg.h"
@@ -140,7 +140,6 @@ StatusCode CalXtalRecAlg::execute()
     if ((*digiIter)->getReadoutCol().size() < 1) continue;
     
     CalXtalId xtalId = (*digiIter)->getPackedId();
-    XtalIdx xtalIdx(xtalId);
     
     // create new object to store crystal reconstructed data  
     // use auto_ptr so it is autmatically deleted when we exit early
