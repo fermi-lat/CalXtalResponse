@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE calCalib [<!--
-   $Header: /nfs/slac/g/glast/ground/cvs/calibGenCAL/unit_test/output/mc_asym.digitization-v3r3p1_135004384_digi_DIGI.xml,v 1.1 2005/11/18 18:42:39 fewtrell Exp $
+   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/8tower_asym.xml,v 1.1 2005/12/07 20:42:33 fewtrell Exp $
 
    /**  @file       calCalib_v2r3.dtd
         @authors    J. Bogart

@@ -24,7 +24,7 @@
     @author           A.Chekhtman
     @author           Zach Fetwrell
 
-    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.h,v 1.1 2005/07/23 03:50:54 fewtrell Exp $
+    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.h,v 1.2 2005/12/07 20:41:43 fewtrell Exp $
 */
 class CalXtalRecAlg : public Algorithm
 {
@@ -56,8 +56,10 @@ class CalXtalRecAlg : public Algorithm
   /// name of IXtalRecTool instantiation
   StringProperty m_recToolName;
 
-  /// name of CalXtalRecTuple file.  Default = "" (no file).
+  /// name of CalXtalRecTuple tree.  Default = "" (no file).
   StringProperty m_tupleName;
+  /// optional name of CalXtalRecTuple file.  Defaul = "" (use ntupleWriterSvc default)
+  StringProperty m_tupleFilename;
   /// store current entry for CalTuple
   CalTupleEntry m_tupleEntry;
   /// pointer to tupleWriterSvc
