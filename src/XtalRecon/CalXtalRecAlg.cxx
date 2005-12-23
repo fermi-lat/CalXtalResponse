@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.2 2005/08/18 16:41:46 chehtman Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.3 2005/10/12 18:23:33 fewtrell Exp $
 
 // LOCAL INCLUDES
 #include "CalXtalRecAlg.h"
@@ -111,13 +111,6 @@ StatusCode CalXtalRecAlg::execute()
 {
   StatusCode sc = StatusCode::SUCCESS;
 
-  //get access to TDS data collections
-  sc = retrieve(); 
-  // non-fatal error:
-  /// if there's no CalDigiCol then CalXtalRecAlg is not happening, go on w/ other algs
-  if (!m_calDigiCol) return StatusCode::SUCCESS;
-  // fatal error  if (sc.isFailure()) return sc;
-
   // reset optional tuple entry
   if (m_tupleTree) {
     m_tupleEntry.Clear();
@@ -125,53 +118,57 @@ StatusCode CalXtalRecAlg::execute()
     m_tupleEntry.m_runId   = m_evtHdr->run();
     m_tupleEntry.m_eventId = m_evtHdr->event();
   }
-       
-  // loop over all calorimeter digis in CalDigiCol
-  for (CalDigiCol::const_iterator digiIter = m_calDigiCol->begin(); 
-       digiIter != m_calDigiCol->end(); digiIter++) {
+
+  //get access to TDS data collections
+  sc = retrieve(); 
+  if (m_calDigiCol) {
+    // loop over all calorimeter digis in CalDigiCol
+    for (CalDigiCol::const_iterator digiIter = m_calDigiCol->begin(); 
+         digiIter != m_calDigiCol->end(); digiIter++) {
     
-    // if there is no digi data, then move on w/ out creating
-    // recon TDS data for this xtal
-    if ((*digiIter)->getReadoutCol().size() < 1) continue;
+      // if there is no digi data, then move on w/ out creating
+      // recon TDS data for this xtal
+      if ((*digiIter)->getReadoutCol().size() < 1) continue;
     
-    CalXtalId xtalId = (*digiIter)->getPackedId();
+      CalXtalId xtalId = (*digiIter)->getPackedId();
     
-    // create new object to store crystal reconstructed data  
-    // use auto_ptr so it is autmatically deleted when we exit early
-    // on error.
-    auto_ptr<CalXtalRecData> recData(new CalXtalRecData((*digiIter)->getMode(), xtalId));
+      // create new object to store crystal reconstructed data  
+      // use auto_ptr so it is autmatically deleted when we exit early
+      // on error.
+      auto_ptr<CalXtalRecData> recData(new CalXtalRecData((*digiIter)->getMode(), xtalId));
                                      
-    // calculate energy in the crystal
-    // used for current range only
-    bool belowThreshP    = false;
-    bool belowThreshM    = false;
-    bool xtalBelowThresh = false;
-    bool saturatedP      = false;
-    bool saturatedM      = false;
+      // calculate energy in the crystal
+      // used for current range only
+      bool belowThreshP    = false;
+      bool belowThreshM    = false;
+      bool xtalBelowThresh = false;
+      bool saturatedP      = false;
+      bool saturatedM      = false;
 
-    // convert adc values into energy/pos
-    sc = m_xtalRecTool->calculate(*m_evtHdr,
-                                  **digiIter,
-                                  *recData,
-                                  belowThreshP,
-                                  belowThreshM,
-                                  xtalBelowThresh,
-                                  saturatedP,
-                                  saturatedM,
-                                  (m_tupleFile) ? &m_tupleEntry : 0 // optional tuple entry
-                                  );
-    // single xtal may not be able to recon, is not failure condition.
-    if (sc.isFailure()) continue;
+      // convert adc values into energy/pos
+      sc = m_xtalRecTool->calculate(*m_evtHdr,
+                                    **digiIter,
+                                    *recData,
+                                    belowThreshP,
+                                    belowThreshM,
+                                    xtalBelowThresh,
+                                    saturatedP,
+                                    saturatedM,
+                                    (m_tupleFile) ? &m_tupleEntry : 0 // optional tuple entry
+                                    );
+      // single xtal may not be able to recon, is not failure condition.
+      if (sc.isFailure()) continue;
 
-    // skip any xtal w/ at least one LEX8 range below threshold
-    if (xtalBelowThresh) continue;
+      // skip any xtal w/ at least one LEX8 range below threshold
+      if (xtalBelowThresh) continue;
 
-    // add new reconstructed data to the collection
-    // release it from the auto_ptr so it is not deleted
-    m_calXtalRecCol->push_back(recData.release());
+      // add new reconstructed data to the collection
+      // release it from the auto_ptr so it is not deleted
+      m_calXtalRecCol->push_back(recData.release());
+    }
   }
 
-  // fill optional tuple
+  // fill optional tuple, whether we processed any events or not
   if (m_tupleTree)
     m_tupleTree->Fill();
 
