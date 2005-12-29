@@ -1,3 +1,4 @@
+v0r7p9  12/29/05 fewtrell  fixed crash due to my leaving for vaca before testing.
 v0r7p7  12/23/05 fewtrell  CalXtalRecAlg now saves a CalTuple entry for every event, no matter what
 v0r7p6  11/22/05 fewtrell  fixed old bug back to bite me.  crash on partial LAT's.  try to access tower data that's not there.
 v0r7p5  10/19/05 fewtrell  fixed bug reported by philippe: only visible in ideal-mode high-asymmetry xtal deposits near 1050 MeV
