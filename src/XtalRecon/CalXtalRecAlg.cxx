@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.3 2005/10/12 18:23:33 fewtrell Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.3.2.1 2005/12/23 14:40:30 fewtrell Exp $
 
 // LOCAL INCLUDES
 #include "CalXtalRecAlg.h"
@@ -111,6 +111,10 @@ StatusCode CalXtalRecAlg::execute()
 {
   StatusCode sc = StatusCode::SUCCESS;
 
+  //get access to TDS data collections
+  sc = retrieve(); 
+  if (sc.isFailure()) return sc;
+
   // reset optional tuple entry
   if (m_tupleTree) {
     m_tupleEntry.Clear();
@@ -119,8 +123,6 @@ StatusCode CalXtalRecAlg::execute()
     m_tupleEntry.m_eventId = m_evtHdr->event();
   }
 
-  //get access to TDS data collections
-  sc = retrieve(); 
   if (m_calDigiCol) {
     // loop over all calorimeter digis in CalDigiCol
     for (CalDigiCol::const_iterator digiIter = m_calDigiCol->begin(); 
