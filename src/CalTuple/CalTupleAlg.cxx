@@ -1,4 +1,4 @@
-// $Header$
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.1 2006/01/09 21:08:21 fewtrell Exp $
 // LOCAL INCLUDES
 
 // GLAST INCLUDES
@@ -212,12 +212,12 @@ StatusCode CalTupleAlg::execute() {
 
         // ped subtracted ADC
         // get reference to 'real' location in big array
-        float &adcPed = m_tupleEntry.m_calXtalAdcPed[twr][lyr][col][face];
+        float &adcPed = m_tupleEntry.m_calXtalAdcPed[twr][lyr][col][face.getInt()];
         adcPed =  adc - ped; 
 
         // face signal
         // get reference to 'real' location in big array
-        float &faceSignal  = m_tupleEntry.m_calXtalFaceSignal[twr][lyr][col][face];
+        float &faceSignal  = m_tupleEntry.m_calXtalFaceSignal[twr][lyr][col][face.getInt()];
         sc = m_calCalibSvc->evalFaceSignal(rngIdx,adcPed, faceSignal);
         if (sc.isFailure()) return sc;
       }

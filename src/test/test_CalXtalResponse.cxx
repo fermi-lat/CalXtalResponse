@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.11 2005/12/08 03:07:55 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.12 2006/01/09 21:08:23 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -848,10 +848,6 @@ void test_CalXtalResponse::pos2Point(XtalIdx xtalIdx, float xtalPos, Point &pXta
 StatusCode test_CalXtalResponse::testSingleHit() {
   StatusCode  sc;
   MsgStream msglog(msgSvc(), name()); 
-
-  TwrNum twr = curTest.xtalIdx.getTwr();
-  LyrNum lyr = curTest.xtalIdx.getLyr();
-  ColNum col = curTest.xtalIdx.getCol();
 
   /////////////////////////////////////////////////
   // SECTION 0: GENERATE TEST DESCRIPTION STRING //
