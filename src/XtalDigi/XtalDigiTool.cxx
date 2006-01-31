@@ -255,7 +255,7 @@ StatusCode XtalDigiTool::calculate(const CalXtalId &xtalId,
       float eDiode = meVXtal * m_ePerMeV[diode];
 
       // apply poissonic fluctuation to # of electrons.
-      float noise = sqrt(eDiode)*RandGauss::shoot();
+      float noise = sqrt(eDiode)*CLHEP::RandGauss::shoot();
 
       // add noise
       eDiode += noise;
@@ -306,7 +306,7 @@ StatusCode XtalDigiTool::calculate(const CalXtalId &xtalId,
     
       // use same rand for both since the X1 & X8 noise
       // is strongly correlated
-      float rnd = RandGauss::shoot();
+      float rnd = CLHEP::RandGauss::shoot();
 
       m_dat.adcPed[face][diode.getX1Rng()] += sigX1*rnd;
       m_dat.adcPed[face][diode.getX8Rng()] += sigX8*rnd;    
