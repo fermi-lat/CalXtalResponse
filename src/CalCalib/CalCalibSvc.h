@@ -50,12 +50,12 @@ class CalCalibSvc : public Service, virtual public ICalCalibSvc,
 
 
   /// queryInterface - for implementing a Service this is necessary
-  StatusCode queryInterface(const IID& riid, void** ppvUnknown);
+  StatusCode queryInterface(const InterfaceID& riid, void** ppvUnknown);
 
   static const InterfaceID& interfaceID() {return ICalCalibSvc::interfaceID();}
 
   /// return the service type
-  const IID&  CalCalibSvc::type () const {return IID_ICalCalibSvc;}
+  const InterfaceID&  CalCalibSvc::type () const {return IID_ICalCalibSvc;}
 
   /// get MeVPerDac ratios for given xtal
   StatusCode getMeVPerDac(const CalXtalId &xtalId,
