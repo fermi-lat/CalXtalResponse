@@ -1,4 +1,4 @@
-//    $Header$
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.6 2006/01/09 21:08:22 fewtrell Exp $
 
 /** @file
     @author Zach Fewtrell
@@ -18,6 +18,7 @@
 #include "GaudiKernel/MsgStream.h"
 
 #include "CLHEP/Random/RandGauss.h"
+
 
 // STD
 

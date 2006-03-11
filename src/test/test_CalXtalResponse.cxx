@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.13 2006/01/09 22:18:18 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.14 2006/02/13 21:41:20 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -19,6 +19,8 @@
 #include "GaudiKernel/AlgFactory.h"
 #include "GaudiKernel/SmartDataPtr.h"
 #include "GaudiKernel/Algorithm.h"
+
+#include "TFile.h"
 #include "TTree.h"
 
 // STD

@@ -1,6 +1,6 @@
 #ifndef XtalDigiTool_h
 #define XtalDigiTool_h
-//  $Header$
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.h,v 1.5 2006/01/09 21:08:22 fewtrell Exp $
 
 // LOCAL
 #include "CalXtalResponse/IXtalDigiTool.h"
@@ -14,6 +14,7 @@
 
 // EXTLIB
 #include "GaudiKernel/AlgTool.h"
+#include "TFile.h"
 #include "TTree.h"
 
 // STD
