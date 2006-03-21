@@ -1,4 +1,4 @@
-// $Header$
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.cxx,v 1.8 2006/01/09 21:08:22 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
  */
@@ -17,6 +17,7 @@
 
 // STD
 #include <cmath>
+#include <map>
 #include <algorithm>
 
 using namespace CalUtil;

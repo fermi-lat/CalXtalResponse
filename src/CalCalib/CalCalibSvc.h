@@ -1,6 +1,6 @@
 #ifndef CalCalibSvc_H
 #define CalCalibSvc_H
-// $Header$
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.5 2006/01/09 21:08:20 fewtrell Exp $
 
 // LOCAL 
 #include "AsymMgr.h"
@@ -52,10 +52,10 @@ class CalCalibSvc : public Service, virtual public ICalCalibSvc,
 
 
   /// queryInterface - for implementing a Service this is necessary
-  StatusCode queryInterface(const IID& riid, void** ppvUnknown);
+  StatusCode queryInterface(const InterfaceID& riid, void** ppvUnknown);
 
   /// return the service type
-  const IID&  type () const {return IID_ICalCalibSvc;}
+  const InterfaceID&  CalCalibSvc::type () const {return IID_ICalCalibSvc;}
 
   /// get MeVPerDac ratios for given xtal
   StatusCode getMPD(XtalIdx xtalIdx,
