@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.14 2006/02/13 21:41:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.15 2006/03/11 08:37:12 heather Exp $
 
 // Include files
 // Gaudi system includes
@@ -26,6 +26,7 @@
 // STD
 #include <vector>
 #include <string>
+#include <map>
 #include <cmath>
 #include <algorithm>
 #include <sstream>
