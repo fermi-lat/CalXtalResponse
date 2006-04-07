@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE calCalib [<!--
-   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/8tower_ped.xml,v 1.1 2005/12/07 20:42:35 fewtrell Exp $
+   $Header: /nfs/slac/g/glast/ground/cvs/calibUtil/xml/calCalib_v2r3.dtd,v 1.1 2005/08/01 04:17:56 jrb Exp $
 
    /**  @file       calCalib_v2r3.dtd
         @authors    J. Bogart
@@ -256,7 +256,7 @@
 
 ]>
 <calCalib>
-  <generic instrument='LAT' calibType='CAL_Ped' fmtVersion='v2r3' timestamp='2005-11-17-06:16' creator='myname'/>
+  <generic instrument='LAT' calibType='CAL_Ped' fmtVersion='v2r3' timestamp='2006-04-07-18:39' creator='myname'/>
   <dimension nXpos='0' nDacCol='0' nFace='2' nRow='4' exact='false' nRange='4' nCol='4' nLayer='8' nXtal='12'/>
   <tower iCol='1' iRow='3'>
     <layer iLayer='0'>
