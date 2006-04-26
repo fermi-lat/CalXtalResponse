@@ -1,6 +1,6 @@
 #ifndef IdealCalCalib_H
 #define IdealCalCalib_H
-// $Header$
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IdealCalCalib.h,v 1.4 2006/01/09 21:08:20 fewtrell Exp $
 
 // LOCAL INCLUDES
 
@@ -111,7 +111,7 @@ class IdealCalCalib {
   //// INT_NONLIN ///
   ///////////////////
   /// ADC/DAC for each ADC range 
-  vector<double> inlADCPerDAC;          
+  vector<double> inlADCPerCIDAC;          
   /// sigma/val for all vals in INT_NONLIN group
   float inlSigPct;             
 

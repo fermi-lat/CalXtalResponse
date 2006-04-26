@@ -1,6 +1,6 @@
 #ifndef PedMgr_H
 #define PedMgr_H
-// $Header$
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/PedMgr.h,v 1.7 2006/01/09 21:08:21 fewtrell Exp $
 // LOCAL
 #include "CalibItemMgr.h"
 
@@ -14,6 +14,7 @@
 
 using namespace CalUtil;
 using namespace idents;
+using namespace CalibData;
 
 class CalCalibSvc;
 
@@ -25,26 +26,18 @@ class CalCalibSvc;
 
 class PedMgr : public CalibItemMgr {
  public:
-  PedMgr() : 
-    CalibItemMgr(CalibData::CAL_Ped)
+  PedMgr(CalCalibShared &ccsShared) : 
+    CalibItemMgr(CAL_Ped, ccsShared)
     {};
 
   /// get pedestal vals for given xtal/face/rng
-  StatusCode getPed(RngIdx rngIdx,
-                    float &avr,
-                    float &sig,
-                    float &cos);
+  const Ped *getPed(RngIdx rngIdx);
  private:
   StatusCode loadIdealVals();
 
-  bool validateRangeBase(CalibData::Ped *ped);
-
-  /// ped vals to use when calib db is down
-  CalArray<RngNum,float> m_idealPeds;   
-  /// ped sigma vals to use when calib db is down
-  CalArray<RngNum,float> m_idealPedSig; 
-  /// correlated ped cosine vals to use when calib db is down
-  CalArray<RngNum,float> m_idealCos;    
+  bool validateRangeBase(Ped *ped);
+  
+  CalArray<RngNum, Ped> m_idealPeds;
 
   StatusCode genLocalStore();
 };

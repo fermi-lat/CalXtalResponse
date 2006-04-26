@@ -1,4 +1,4 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.6 2005/12/07 20:41:28 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.7 2006/01/09 21:08:22 fewtrell Exp $
 /** 
  * @file
  * @author Zach Fewtrell
@@ -24,6 +24,7 @@ DECLARE_FACTORY_ENTRIES(CalXtalResponse) {
   DLL_DECL_TOOL( XtalDigiTool );
   DLL_DECL_TOOL( XtalRecTool );
   DLL_DECL_TOOL( CalTrigTool );
+  DLL_DECL_TOOL( PrecalcCalibTool );
   
   DLL_DECL_TOOL( CalXtalRespRandom );
 } 

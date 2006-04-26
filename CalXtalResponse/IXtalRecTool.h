@@ -1,6 +1,6 @@
 #ifndef IXtalRecTool_H
 #define IXtalRecTool_H
-// $Header$
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.4 2006/01/09 21:08:20 fewtrell Exp $
 /*! @class IXtalRecTool
  *
  * \author Zach Fewtrell
@@ -23,10 +23,6 @@
 // STD INCLUDES
 
 static const InterfaceID IID_IXtalRecTool("IXtalRecTool", 1, 1);
-
-using namespace idents;
-using namespace std;
-using namespace CalUtil;
 
 class IXtalRecTool : virtual public IAlgTool {
 
@@ -63,9 +59,9 @@ class IXtalRecTool : virtual public IAlgTool {
   */
   virtual StatusCode calculate(const Event::CalDigi &digi,
                                Event::CalXtalRecData &xtalRec,
-                               CalArray<FaceNum, bool> &belowThresh,
+                               CalUtil::CalArray<CalUtil::FaceNum, bool> &belowThresh,
                                bool &xtalBelowThresh,
-                               CalArray<FaceNum, bool> &saturated,
+                               CalUtil::CalArray<CalUtil::FaceNum, bool> &saturated,
                                const Event::EventHeader *evtHdr=0
                                ) = 0;
 };

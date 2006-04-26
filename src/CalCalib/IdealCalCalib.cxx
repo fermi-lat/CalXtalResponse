@@ -1,4 +1,4 @@
-// $Header$
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IdealCalCalib.cxx,v 1.2 2006/01/09 21:08:20 fewtrell Exp $
 
 /** @file
     @author Zach Fewtrell
@@ -83,7 +83,7 @@ StatusCode IdealCalCalib::readCfgFile(const string &path) {
   muonSigPct    = ifile.getDouble(THOLD_MUON.c_str(), "SIG_PCT");
   muonPeds      = ifile.getDoubleVector(THOLD_MUON.c_str(), "PEDS");
 
-  inlADCPerDAC  = ifile.getDoubleVector(INL.c_str(), "ADC_PER_DAC");
+  inlADCPerCIDAC  = ifile.getDoubleVector(INL.c_str(), "ADC_PER_CIDAC");
   inlSigPct     = ifile.getDouble(INL.c_str(), "SIG_PCT");
 
   return StatusCode::SUCCESS;
