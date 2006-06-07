@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.3 2006/02/13 21:41:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.4 2006/04/26 20:23:54 fewtrell Exp $
 // LOCAL INCLUDES
 
 // GLAST INCLUDES
@@ -52,7 +52,7 @@ private:
       m_calXtalAdcPed(0),
       m_nAdcPed(0) {}
 
-    ~CalTupleEntry() { if (m_calXtalAdcPed) delete m_calXtalAdcPed; }
+    ~CalTupleEntry() { if (m_calXtalAdcPed) delete [] m_calXtalAdcPed; }
 
     StatusCode initialize() {
       

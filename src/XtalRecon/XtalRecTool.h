@@ -1,6 +1,6 @@
 #ifndef XtalRecTool_h
 #define XtalRecTool_h
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.h,v 1.6 2006/03/11 08:37:25 heather Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.h,v 1.7 2006/04/26 20:23:55 fewtrell Exp $
 
 // LOCAL
 #include "CalXtalResponse/IXtalRecTool.h"
@@ -92,7 +92,7 @@ class XtalRecTool : public AlgTool,
   /// if pointer is NULL
   TTree *m_tuple;
   /// pointer to XtalRecToolTuple file.
-  TFile *m_tupleFile;
+  auto_ptr<TFile> m_tupleFile;
 
 
   /// length of CsI xtal in mm

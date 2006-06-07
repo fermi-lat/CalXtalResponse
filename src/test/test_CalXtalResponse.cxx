@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.13 2006/01/09 22:18:18 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.17 2006/04/26 20:23:55 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -257,7 +257,7 @@ private:
   /// if pointer is NULL
   TTree *m_tuple;
   /// pointer to XtalDigiToolTuple file.
-  TFile *m_tupleFile;
+  auto_ptr<TFile> m_tupleFile;
 
   /// by default, we only test a subset of xtals 
   /// by testing them all you can characterize a particular 
@@ -394,7 +394,6 @@ test_CalXtalResponse::test_CalXtalResponse(const string& name, ISvcLocator* pSvc
   : Algorithm(name, pSvcLocator),
     m_detSvc(0),
     m_tuple(0),
-    m_tupleFile(0),
     m_calCalibSvcIdeal(0),
     m_digiToolIdeal(0),
     m_digiToolIdealNoise(0),
@@ -571,8 +570,8 @@ StatusCode test_CalXtalResponse::initialize(){
 
   // open optional tuple file
   if (m_tupleFilename.value().length() > 0 ) {
-    m_tupleFile = new TFile(m_tupleFilename.value().c_str(),"RECREATE","test_CalXtalResponse");
-    if (!m_tupleFile)
+    m_tupleFile.reset(new TFile(m_tupleFilename.value().c_str(),"RECREATE","test_CalXtalResponse"));
+    if (!m_tupleFile.get())
       // allow to continue w/out tuple file as it is not a _real_ failure
       msglog << MSG::ERROR << "Unable to create TTree object: " << m_tupleFilename << endreq;
     
@@ -772,13 +771,10 @@ StatusCode test_CalXtalResponse::finalize(){
   MsgStream msglog(msgSvc(), name());
 
   // make sure optional tuple is closed out                                                        
-  if (m_tupleFile) {
+  if (m_tupleFile.get()) {
     m_tupleFile->Write();
     m_tupleFile->Close(); // trees deleted                                                         
-    delete m_tupleFile;
-    m_tupleFile = 0;
   }
-
 
   return StatusCode::SUCCESS;
 }
@@ -984,8 +980,6 @@ StatusCode test_CalXtalResponse::verifyXtalDigi(const Event::CalDigi &calDigi,
                                                 Event::GltDigi *glt) {
   StatusCode sc;
   MsgStream msglog(msgSvc(), name()); 
-
-  
       
   //-- DIGI VERIFICTION: N READOUTS --//
   short nRO = calDigi.getReadoutCol().size();

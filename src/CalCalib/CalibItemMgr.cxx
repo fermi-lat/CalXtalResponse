@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.6 2006/01/09 21:08:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.7 2006/04/26 20:23:53 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -229,8 +229,8 @@ StatusCode CalibItemMgr::genSpline(int calibType, LATWideIndex idx, const string
   m_splineXMax[calibType][idx] = xp[n-1];
 
   // clear heap variables
-  delete xp;
-  delete yp;
+  delete [] xp;
+  delete [] yp;
   
   return StatusCode::SUCCESS;
 }

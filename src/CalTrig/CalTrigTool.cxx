@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.2 2006/01/09 21:08:21 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.3 2006/04/26 20:23:54 fewtrell Exp $
 
 // Include files
 /** @file
@@ -315,27 +315,26 @@ GltDigi* CalTrigTool::setupGltDigi(IDataProviderSvc *eventSvc) {
 
   // search for GltDigi in TDS
   static const string gltPath( EventModel::Digi::Event+"/GltDigi");
-  GltDigi* glt=0;  // this will point to glt data one way or another
   DataObject* pnode = 0;
   sc = eventSvc->findObject(gltPath, pnode);
-  glt = dynamic_cast<GltDigi*>(pnode);
 
+  auto_ptr<GltDigi> glt;
   // if the required entry doens't exit - create it
   if (sc.isFailure()) {
-    glt = new GltDigi();
+    glt.reset(new GltDigi());
     // always register glt data, even if there is no caldigi data.
     // sometimes we can trigger w/ no LACs.
-    sc = eventSvc->registerObject(gltPath, glt);
+    sc = eventSvc->registerObject(gltPath, glt.get());
     if (sc.isFailure()) {
       // if cannot create entry - error msg
       MsgStream msglog(msgSvc(), name());
       msglog << MSG::WARNING << " Could not create GltDigi entry" << endreq;
-      if (glt) delete glt;
       return NULL;
     }
   }
+  else glt.reset(dynamic_cast<GltDigi*>(pnode));
 
-  return glt;
+  return glt.release();
 }
 
 
