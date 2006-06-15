@@ -1,6 +1,6 @@
 #ifndef CalCalibSvc_H
 #define CalCalibSvc_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.6 2006/03/21 01:39:05 usher Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.7 2006/04/26 20:23:53 fewtrell Exp $
 
 // LOCAL 
 #include "AsymMgr.h"
@@ -22,7 +22,7 @@
 // STD
 
 using namespace CalUtil;
-using namespace CalXtalResponse;
+
 
 /** @class CalCalibSvc
     @author Zachary Fewtrell
@@ -94,7 +94,7 @@ class CalCalibSvc : public Service, virtual public ICalCalibSvc,
 
   StatusCode evalFaceSignal(RngIdx rngIdx, float adc, float &ene);
 
-  StatusCode getAsymCtr(CalUtil::XtalIdx xtalIdx, CalXtalResponse::AsymType asymType, 
+  StatusCode getAsymCtr(CalUtil::XtalIdx xtalIdx, CalUtil::AsymType asymType, 
                         float &asymCtr) {
     return m_asymMgr.getAsymCtr(xtalIdx, asymType, asymCtr);
   }

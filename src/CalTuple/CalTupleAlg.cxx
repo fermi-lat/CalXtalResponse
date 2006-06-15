@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.4 2006/04/26 20:23:54 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.5 2006/06/07 18:01:53 fewtrell Exp $
 // LOCAL INCLUDES
 
 // GLAST INCLUDES
@@ -23,6 +23,7 @@ using namespace std;
 using namespace CalUtil;
 using namespace Event;
 using namespace CalibData;
+using namespace idents;
 
 /** @class CalTupleAlg
     @brief populates CalTuple entry w/ info derived from CalDigis & calibrations

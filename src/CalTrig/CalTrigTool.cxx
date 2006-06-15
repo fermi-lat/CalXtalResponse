@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.3 2006/04/26 20:23:54 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.4 2006/06/07 18:01:52 fewtrell Exp $
 
 // Include files
 /** @file
@@ -22,6 +22,7 @@
 using namespace CalUtil;
 using namespace Event;
 using namespace CalibData;
+using namespace idents;
 
 
 static ToolFactory<CalTrigTool> s_factory;

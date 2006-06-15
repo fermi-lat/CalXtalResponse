@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.9 2006/04/26 20:23:55 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.10 2006/06/07 18:01:53 fewtrell Exp $
 
 /** @file
     @author Zach Fewtrell
@@ -23,8 +23,8 @@
 
 using namespace CalUtil;
 using namespace Event;
-using namespace CalXtalResponse;
 using namespace CalibData;
+using namespace idents;
 
 
 static ToolFactory<XtalDigiTool> s_factory;

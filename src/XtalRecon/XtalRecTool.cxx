@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.cxx,v 1.10 2006/04/26 20:23:55 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.cxx,v 1.11 2006/06/07 18:01:53 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
  */
@@ -21,10 +21,9 @@
 #include <algorithm>
 
 using namespace CalUtil;
-using Event::CalDigi;
-using Event::CalXtalRecData;
-using namespace CalXtalResponse;
+using namespace Event;
 using namespace CalibData;
+using namespace idents;
 
 static ToolFactory<XtalRecTool> s_factory;
 const IToolFactory& XtalRecToolFactory = s_factory;

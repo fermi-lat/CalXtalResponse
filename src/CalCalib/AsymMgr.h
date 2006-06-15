@@ -1,9 +1,9 @@
 #ifndef AsymMgr_H
 #define AsymMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/AsymMgr.h,v 1.7 2006/01/09 21:08:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/AsymMgr.h,v 1.8 2006/04/26 20:23:53 fewtrell Exp $
 // LOCAL
 #include "CalibItemMgr.h"
-#include "CalXtalResponse/CalCalibDefs.h"
+
 
 // GLAST
 #include "CalUtil/CalDefs.h"
@@ -16,7 +16,6 @@
 
 using namespace CalUtil;
 using namespace idents;
-using namespace CalXtalResponse;
 using namespace CalibData;
 
 class CalCalibSvc;

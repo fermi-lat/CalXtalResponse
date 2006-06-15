@@ -1,4 +1,4 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.7 2006/01/09 21:08:22 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.8 2006/04/26 20:23:55 fewtrell Exp $
 /** 
  * @file
  * @author Zach Fewtrell
@@ -17,6 +17,7 @@
 DECLARE_FACTORY_ENTRIES(CalXtalResponse) {
   
   DECLARE_SERVICE( CalCalibSvc );
+  DECLARE_SERVICE( CalFailureModeSvc );
   
   DECLARE_ALGORITHM( CalXtalRecAlg );
   DECLARE_ALGORITHM( CalTupleAlg );
