@@ -35,9 +35,8 @@
 
 
 /////////////////////// CALTUPLE ////////////////////////////////////////////////
-//CalTupleAlg.tupleName = "CalTuple"; // enable CalTuple
+//CalTupleAlg.tupleName = "CalTuple"; // change name of CalTuple tree
 //CalTupleAlg.tupleFilename = "CalTuple.root"; // optional filename
-//CalTupleAlg.fourRangeMode = true; // enable 4 range readout in CalTuple
 
 /////////////////////// MISC OPTIONS //////////////////////////////////////////
 //-- OPTIONAL - turn off randomly gererated noise in digi (default = true)

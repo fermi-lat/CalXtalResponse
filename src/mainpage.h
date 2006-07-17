@@ -2,7 +2,7 @@
     Mainpage for doxygen
     @author Zach Fewtrell
 */
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.11 2006/01/09 21:08:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.12 2006/02/13 21:41:19 fewtrell Exp $
 
 /** @mainpage package CalXtalResponse
 
@@ -123,29 +123,28 @@ xtal digi->energy conversion (default is "XtalRecTool")
 
 CalTupleAlg generates CalTuple entries from TDS digi data.  Current entries
 include:
-- CalXtalAdcPed: pedestal subtraced adc values per cahnnel.
+- CalXtalAdcPed: pedestal subtraced adc values per channel (BESTRANGE).
 - CalXtalAdcRng: adc range selection per channel
-- CalXtalFaceSignal: Signal @ each crystal face in units of MeV deposited at center
-of xtal
+- CalXtalFaceSignal: Signal @ each crystal face in units of MeV deposited at 
+center of xtal
 
-Each Ntuple branch is a multi-dimensional array matching CAL geometry ([16][8][12][2], 
-representing tower, layer, xtal & xtal face respectively)
+Each of these branches is a multi-dimensional array matching 
+CAL geometry ([16][8][12][2],  representing tower, layer, 
+xtal & xtal face respectively)
+
+- CalXtalAdcPedAllRange: pedestal subtracted adc values 
+for all adc channels (may be zero if data is not available).
+shape is [16][8][12][2][4] (last index represents ADC range.
+
 
 @subsection jobOptions jobOptions
 
-@param CalTupleAlg.tupleName name of optional CalTuple tree. 
-(default is "CalTuple")
+@param CalTupleAlg.tupleName override name of CalTuple tree (default is "CalTuple")
 
 @param CalTupleAlg.tupleFilename optional name of CalTuple file.
 instructs ntupleWriterSvc to create CalTuple in it's own file
 instead of sharing the default file w/ other modules.  The
 default ("") will use the shared file
-
-@param CalTupleAlg.fourRangeMode Save all 4 adc ranges instead of just best range. (default=false)
-\note if this option is chosen, then the array shape is altered to support the extra range information
-([16][8][12][2][4])
-\note TDS Digi data must be in ALLRANGE mode, not the default BEST.  Otherwise
-the additional CalTuple entries will be zero.
 
 @param CalCalibSvc CalCalibSvc
 specifies which ICalCalibSvc object should be used by CalTupleAlg.  
