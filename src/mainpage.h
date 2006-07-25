@@ -2,7 +2,7 @@
     Mainpage for doxygen
     @author Zach Fewtrell
 */
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.14 2006/06/15 20:42:05 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.15 2006/07/18 18:24:49 fewtrell Exp $
 
 /** 
     @mainpage package CalXtalResponse
@@ -124,6 +124,9 @@
     xtal & xtal face respectively)
 
     - CalXtalAdcPedAllRange: pedestal subtracted adc values 
+    for all adc channels (may be zero if data is not available).
+    shape is [16][8][12][2][4] (last index represents ADC range.
+    - CalXtalFaceSignalAllRange: face signal
     for all adc channels (may be zero if data is not available).
     shape is [16][8][12][2][4] (last index represents ADC range.
     
