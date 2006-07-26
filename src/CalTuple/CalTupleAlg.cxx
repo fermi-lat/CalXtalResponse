@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.3.2.1 2006/07/17 19:43:33 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.3.2.2 2006/07/26 18:20:17 fewtrell Exp $
 // LOCAL INCLUDES
 
 // GLAST INCLUDES
@@ -273,10 +273,14 @@ StatusCode CalTupleAlg::execute() {
 
         // face signal
         // get reference to 'real' location in big array
-        float &faceSignal  = m_tupleEntry.m_calXtalFaceSignal[twr][lyr][col][face.getInt()];
-        sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
-        if (sc.isFailure()) return sc;
-        m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.getInt()][rng.getInt()] = faceSignal;
+        if (adcPed > 0) {
+          float faceSignal;
+          sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
+          if (sc.isFailure()) return sc;
+          faceSignal = max<float>(0,faceSignal);
+          m_tupleEntry.m_calXtalFaceSignal[twr][lyr][col][face.getInt()] = faceSignal;
+          m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.getInt()][rng.getInt()] = faceSignal;
+        }
 
         // fill in 1st readout for both bestrange and allrange arrays
         m_tupleEntry.m_calXtalAdcPed[twr][lyr][col][face.getInt()] = adcPed;
@@ -304,10 +308,13 @@ StatusCode CalTupleAlg::execute() {
             
           m_tupleEntry.m_calXtalAdcPedAllRange[twr][lyr][col][face.getInt()][rng.getInt()] = adcPed;
 
-          float &myfaceSignal  = m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.getInt()][rng.getInt()];
-          sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, myfaceSignal);
-          if (sc.isFailure()) return sc;
-
+          if (adcPed > 0) {
+            float faceSignal;
+            sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
+            if (sc.isFailure()) return sc;
+            m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.getInt()][rng.getInt()] = 
+              max<float>(0,faceSignal);
+          }
         }
       }
     }
