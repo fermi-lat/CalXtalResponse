@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.7 2006/07/18 18:24:49 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.8 2006/07/25 18:42:42 fewtrell Exp $
 // LOCAL INCLUDES
 
 // GLAST INCLUDES
@@ -281,6 +281,7 @@ StatusCode CalTupleAlg::execute() {
         float &faceSignal  = m_tupleEntry.m_calXtalFaceSignal[twr][lyr][col][face.val()];
         sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
         if (sc.isFailure()) return sc;
+        m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.val()][rng.val()] = faceSignal;
 
         // fill in 1st readout for both bestrange and allrange arrays
         m_tupleEntry.m_calXtalAdcPed[twr][lyr][col][face.val()] = adcPed;
