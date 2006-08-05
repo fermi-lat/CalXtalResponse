@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.4 2006/06/07 18:01:52 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.5 2006/06/15 20:42:06 fewtrell Exp $
 
 // Include files
 /** @file
@@ -108,9 +108,10 @@ StatusCode CalTrigTool::calcXtalTrig(XtalIdx xtalIdx,
     const Ped *ped = m_calCalibSvc->getPed(rngIdx);
     if (!ped) return StatusCode::FAILURE;
     float adcPed = adc - ped->getAvr();
+
     //-- eval faceSignal 
     sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, ene);
-    if (sc.isFailure()) return StatusCode::FAILURE;
+    if (sc.isFailure()) return sc;
 
     // set trigger bit
     if (ene >= fleMeV) {

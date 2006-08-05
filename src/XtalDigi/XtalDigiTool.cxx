@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.10 2006/06/07 18:01:53 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.11 2006/06/15 20:42:06 fewtrell Exp $
 
 /** @file
     @author Zach Fewtrell
@@ -104,7 +104,7 @@ StatusCode XtalDigiTool::initialize() {
   m_CsILength = tmp;
   if (sc.isFailure()) {
     msglog << MSG::ERROR << " constant CsILength not defiPed" << endreq;
-    return StatusCode::FAILURE;
+    return sc;
   }
   
   // eperMeVInDiode originally from CalDigi XML file

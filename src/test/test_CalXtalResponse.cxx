@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.18 2006/06/07 18:01:53 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.19 2006/06/15 20:42:07 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -477,7 +477,7 @@ StatusCode test_CalXtalResponse::initialize(){
   m_csiLength = tmp;
   if (sc.isFailure()) {
     msglog << MSG::ERROR << " constant CsILength not defined" << endreq;
-    return StatusCode::FAILURE;
+    return sc;
   }
 
 
@@ -681,7 +681,7 @@ StatusCode test_CalXtalResponse::execute()
             msglog << MSG::ERROR << "TESTFAIL, BAD PARTIAL LAT, "
                    << curTest->xtalIdx.getTwr() << ", , "
                    << curTest->testDesc << endreq;
-            return StatusCode::FAILURE;
+            return sc;
           }
 
           // quietly skip rest of testing on this xtal as it is not installed in LAT.
