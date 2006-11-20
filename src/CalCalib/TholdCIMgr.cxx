@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/TholdCIMgr.cxx,v 1.9 2006/01/09 21:08:21 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/TholdCIMgr.cxx,v 1.10 2006/04/26 20:23:54 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
  */
@@ -72,6 +72,7 @@ StatusCode TholdCIMgr::loadIdealVals() {
 
 bool TholdCIMgr::validateRangeBase(CalTholdCI *tholdCI) {
   if (!tholdCI) return false;
+
   if (!tholdCI->getFLE()) {
     // no error print out req'd b/c we're supporting LAT configs w/ empty bays
     // however, if tholdCI->getFLE() is successful & following checks fail

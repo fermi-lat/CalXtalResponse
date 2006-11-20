@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.8 2006/06/07 18:01:52 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.9 2006/08/05 17:35:20 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -153,7 +153,7 @@ StatusCode CalibItemMgr::evalSpline(int calibType, LATWideIndex idx,
   if (!spline) {
     ostringstream msg;
     MsgStream msglog(m_ccsShared.m_service->msgSvc(), m_ccsShared.m_service->name()); 
-    msglog << MSG::ERROR 
+    msglog << MSG::INFO 
            << "No spline data found for " << m_calibPath 
            << " xtal=" << idx.val()
            << endreq;

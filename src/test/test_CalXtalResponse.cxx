@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.19 2006/06/15 20:42:07 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.20 2006/08/05 17:35:21 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -467,7 +467,7 @@ StatusCode test_CalXtalResponse::initialize(){
     if(!m_detSvc->getNumericConstByName((*iter).second, &tmp)) {
       MsgStream msglog(msgSvc(), name());
       msglog << MSG::ERROR << " constant " <<(*iter).second
-             <<" not defined" << endreq;
+             << " not defined" << endreq;
       return StatusCode::FAILURE;
     } else *((*iter).first)= int(tmp); // store retrieved value 
   }
