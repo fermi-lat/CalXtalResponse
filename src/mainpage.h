@@ -2,7 +2,7 @@
     Mainpage for doxygen
     @author Zach Fewtrell
 */
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.15 2006/07/18 18:24:49 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.16 2006/07/25 18:42:42 fewtrell Exp $
 
 /** 
     @mainpage package CalXtalResponse
@@ -187,6 +187,16 @@
     
     - Samples from throughout the energy range of the instrument is checked and
     crystals are checked at several positions along their length.
+
+	 * @section CalFailureModeSvc CalFailureModeSvc
+ * CalFailureModeSvc creates a list of large-scale failures in the CAL, 
+ * and utilities
+ * to search the lists to allow digi and recon algorithms to ignore hits based
+ * on those lists.
+ *
+ * It can take lists of towers, (tower,AFEE) or (tower, Controller) pairs
+ * to create the lists of dead objects. It provides a method to see if a 
+ * given CalXtalId is contained in the lists.
     
     
 */
