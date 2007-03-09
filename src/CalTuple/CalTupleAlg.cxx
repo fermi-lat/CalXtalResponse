@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.11 2006/08/05 17:35:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.12 2006/11/01 16:22:50 fewtrell Exp $
 // LOCAL INCLUDES
 
 // GLAST INCLUDES
@@ -50,15 +50,11 @@ public:
 private:
   /// Single entry in CalTuple
   struct CalTupleEntry {
-    CalTupleEntry() {}
+    CalTupleEntry() {
+      Clear();
+    }
 
     ~CalTupleEntry() {}
-
-    StatusCode initialize() {
-      
-      
-      return StatusCode::SUCCESS;
-    }
 
     void Clear() {
       m_runId = 0;
@@ -133,8 +129,6 @@ StatusCode CalTupleAlg::initialize() {
     msglog << MSG::ERROR << "Could not set jobOptions properties" << endreq;
     return sc;
   }
-
-  m_tupleEntry.initialize();
 
   // obtain CalCalibSvc
   sc = service(m_calCalibSvcName.value(), m_calCalibSvc);
