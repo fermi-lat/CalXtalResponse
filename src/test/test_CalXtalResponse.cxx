@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.21 2006/11/20 19:29:38 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.22 2007/03/15 17:55:42 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -15,6 +15,9 @@
 #include "CalUtil/CalDefs.h"
 #include "CalUtil/CalArray.h"
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
+#include "geometry/Point.h"
+#include "Event/Recon/CalRecon/CalXtalRecData.h"
+
 
 // EXTLIB
 #include "GaudiKernel/MsgStream.h"
@@ -945,7 +948,9 @@ StatusCode test_CalXtalResponse::testSingleHit() {
                                         recData,
                                         belowThresh,
                                         xtalBelowThresh,
-                                        saturated);
+                                        saturated,
+                                        0,
+                                        0);
   if (sc.isFailure()) return sc;
 
   // only process if ptr is non-null
@@ -1749,7 +1754,7 @@ StatusCode test_CalXtalResponse::testMultiHit() {
                                         belowThresh,
                                         xtalBelowThresh,
                                         saturated,
-                                        0);
+                                        0,0);
   if (sc.isFailure()) return sc;
 
   // only process if ptr is non-null

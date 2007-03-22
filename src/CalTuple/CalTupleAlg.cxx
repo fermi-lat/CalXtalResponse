@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.12 2006/11/01 16:22:50 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.13 2007/03/09 19:41:47 fewtrell Exp $
 // LOCAL INCLUDES
 
 // GLAST INCLUDES
@@ -271,12 +271,12 @@ StatusCode CalTupleAlg::execute() {
         float adcPed = adc - ped->getAvr();
 
         // face signal
-        // get reference to 'real' location in big array
         if (adcPed > 0) {
           float faceSignal;
           sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
+		  faceSignal = max<float>(0,faceSignal);
           if (sc.isFailure()) return sc;
-          m_tupleEntry.m_calXtalFaceSignal[twr][lyr][col][face.val()] = max<float>(0,faceSignal);
+          m_tupleEntry.m_calXtalFaceSignal[twr][lyr][col][face.val()] = faceSignal;
           m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.val()][rng.val()] = faceSignal;
         }
 
@@ -308,9 +308,10 @@ StatusCode CalTupleAlg::execute() {
 
           if (adcPed > 0) {
             float faceSignal; 
+            faceSignal = max<float>(0,faceSignal);
             sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
-            if (sc.isFailure()) return sc;
-            m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.val()][rng.val()] = max<float>(0,faceSignal);
+			if (sc.isFailure()) return sc;
+            m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.val()][rng.val()] = faceSignal;
           }
         }
       }
