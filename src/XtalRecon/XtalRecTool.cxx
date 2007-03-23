@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.cxx,v 1.13 2006/08/05 17:35:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.cxx,v 1.14 2007/03/22 22:38:18 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -260,7 +260,10 @@ StatusCode XtalRecTool::calculate(const Event::CalDigi &digi,
     ///////////////////////////////////////////////////////////
     if (xtalkTool) {
       DiodeIdx diodeIdx(m_dat.xtalIdx, face, m_dat.diode[face]);
-      m_dat.cidac[face] += xtalkTool->calcXtalk(diodeIdx);
+	  float xtalkCIDAC;
+	  sc = xtalkTool->calcXtalkCIDAC(diodeIdx, xtalkCIDAC);
+	  if (sc.isFailure()) return sc;
+      m_dat.cidac[face] += xtalkCIDAC;
     }
     
     /////////////////////////////////////////////

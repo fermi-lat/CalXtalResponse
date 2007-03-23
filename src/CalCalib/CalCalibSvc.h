@@ -1,6 +1,6 @@
 #ifndef CalCalibSvc_H
 #define CalCalibSvc_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.7 2006/04/26 20:23:53 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.8 2006/06/15 20:42:05 fewtrell Exp $
 
 // LOCAL 
 #include "AsymMgr.h"
@@ -93,6 +93,8 @@ class CalCalibSvc : public Service, virtual public ICalCalibSvc,
   }
 
   StatusCode evalFaceSignal(RngIdx rngIdx, float adc, float &ene);
+
+  StatusCode getMPDDiode(CalUtil::DiodeIdx diodeIdx, float &mpdDiode);
 
   StatusCode getAsymCtr(CalUtil::XtalIdx xtalIdx, CalUtil::AsymType asymType, 
                         float &asymCtr) {
