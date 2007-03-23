@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/NeighborXtalkTool.cxx,v 1.1 2007/03/22 22:38:18 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/NeighborXtalkTool.cxx,v 1.2 2007/03/23 17:35:04 fewtrell Exp $
 
 /** @file
     @author Zach Fewtrell
@@ -278,7 +278,6 @@ StatusCode NeighborXtalkTool::buildSignalMap(const Event::CalDigiCol &digiCol) {
       float adc(ro->getAdc(face));
 
       FaceIdx faceIdx(xtalIdx,face);
-      DiodeIdx diodeIdx(faceIdx,rng.getDiode());
       RngIdx rngIdx(faceIdx,rng);
 
       // pedestal subtract
@@ -289,7 +288,6 @@ StatusCode NeighborXtalkTool::buildSignalMap(const Event::CalDigiCol &digiCol) {
         return StatusCode::FAILURE;
       }
       float adcPed = adc - ped->getAvr();
-          
           
       // evaluate CIDAC signal
       float cidac = 0;
