@@ -1,4 +1,4 @@
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.8 2006/01/09 21:08:22 fewtrell Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.cxx,v 1.9 2007/03/22 22:38:18 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -95,7 +95,7 @@ StatusCode CalXtalRecAlg::execute()
 
   // initialize neighborXtalkTool
   if (m_xtalkTool)
-	  m_xtalkTool->buildSignalMap(*m_calDigiCol);  
+    m_xtalkTool->buildSignalMap(*m_calDigiCol);  
        
   // loop over all calorimeter digis in CalDigiCol
   for (CalDigiCol::const_iterator digiIter = m_calDigiCol->begin(); 
@@ -126,9 +126,9 @@ StatusCode CalXtalRecAlg::execute()
                                   belowThresh,
                                   xtalBelowThresh,
                                   saturated,
-								  m_xtalkTool,
-								  0
-								  );
+                                  m_xtalkTool,
+                                  0
+                                  );
     // single xtal may not be able to recon, is not failure condition.
     if (sc.isFailure()) continue;
 

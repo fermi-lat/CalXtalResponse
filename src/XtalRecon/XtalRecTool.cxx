@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.cxx,v 1.14 2007/03/22 22:38:18 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.cxx,v 1.15 2007/03/23 17:35:03 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -255,22 +255,25 @@ StatusCode XtalRecTool::calculate(const Event::CalDigi &digi,
       return StatusCode::SUCCESS;
     }
 
-    ///////////////////////////////////////////////////////////
-    //-- STEP 4: (OPTIONAL) NEIGHBOR XTAL XTALK CORRECTION --//
-    ///////////////////////////////////////////////////////////
-    if (xtalkTool) {
-      DiodeIdx diodeIdx(m_dat.xtalIdx, face, m_dat.diode[face]);
-	  float xtalkCIDAC;
-	  sc = xtalkTool->calcXtalkCIDAC(diodeIdx, xtalkCIDAC);
-	  if (sc.isFailure()) return sc;
-      m_dat.cidac[face] += xtalkCIDAC;
-    }
-    
     /////////////////////////////////////////////
-    //-- STEP 5: DETECT SATURATED HEX1 RANGE --//
+    //-- STEP 4: DETECT SATURATED HEX1 RANGE --//
     /////////////////////////////////////////////
     if (m_dat.rng[face] == HEX1)
       if (m_dat.adc[face] >= m_dat.h1Limit[face]) saturated[face] = true;
+
+    ///////////////////////////////////////////////////////////
+    //-- STEP 5: (OPTIONAL) NEIGHBOR XTAL XTALK CORRECTION --//
+    ///////////////////////////////////////////////////////////
+    if (xtalkTool 
+        && !saturated[face])  // don't subtract signal from saturated xtals
+      {
+        DiodeIdx diodeIdx(m_dat.xtalIdx, face, m_dat.diode[face]);
+        float xtalkCIDAC;
+        sc = xtalkTool->calcXtalkCIDAC(diodeIdx, xtalkCIDAC);
+        if (sc.isFailure()) return sc;
+        m_dat.cidac[face] -= xtalkCIDAC;
+      }
+    
     
   
     ////////////////////////////////////////////
