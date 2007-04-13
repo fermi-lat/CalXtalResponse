@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.15 2007/03/23 17:35:03 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.16 2007/04/03 19:16:16 fewtrell Exp $
 // LOCAL INCLUDES
 #include "../Xtalk/INeighborXtalkTool.h"
 #include "CalXtalResponse/ICalCalibSvc.h"
@@ -298,7 +298,6 @@ StatusCode CalTupleAlg::execute() {
         if (adcPed > 0) {
           float faceSignal;
           sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
-          faceSignal = max<float>(0,faceSignal);
           if (sc.isFailure()) return sc;
                   
           // (optional) Neighbor Xtalk Correction
@@ -310,10 +309,9 @@ StatusCode CalTupleAlg::execute() {
             faceSignal -= xtalkMeV;
           }
                   
+          faceSignal = max<float>(0,faceSignal);
           m_tupleEntry.m_calXtalFaceSignal[twr][lyr][col][face.val()] = faceSignal;
           m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.val()][rng.val()] = faceSignal;
-
-
         }
 
 
@@ -345,7 +343,8 @@ StatusCode CalTupleAlg::execute() {
           //-- FACE SIGNAL --//
           if (adcPed > 0) {
             float faceSignal; 
-            faceSignal = max<float>(0,faceSignal);
+            sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
+            if (sc.isFailure()) return sc;
 
             // (optional) Neighbor Xtalk Correction
             if (m_xtalkTool) {
@@ -356,8 +355,7 @@ StatusCode CalTupleAlg::execute() {
               faceSignal -= xtalkMeV;
             }
 
-            sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, faceSignal);
-            if (sc.isFailure()) return sc;
+            faceSignal = max<float>(0,faceSignal);
             m_tupleEntry.m_calXtalFaceSignalAllRange[twr][lyr][col][face.val()][rng.val()] = faceSignal;
           }
         }
