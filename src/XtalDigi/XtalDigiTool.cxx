@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.14 2007/03/07 22:58:25 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.15 2007/05/25 21:32:48 fewtrell Exp $
 
 /** @file
     @author Zach Fewtrell
@@ -25,6 +25,7 @@
 #include "CLHEP/Random/RandGauss.h"
 
 // STD
+#include <map>
 
 using namespace CalUtil;
 using namespace Event;
@@ -68,7 +69,7 @@ StatusCode XtalDigiTool::initialize() {
   StatusCode sc;
 
   double val;
-  typedef map<int*,string> PARAMAP;
+  typedef std::map<int*,string> PARAMAP;
 
   //-- jobOptions --//
   if ((sc = setProperties()).isFailure()) {
