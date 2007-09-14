@@ -1,20 +1,16 @@
 #ifndef PedMgr_H
 #define PedMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/PedMgr.h,v 1.7 2006/01/09 21:08:21 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/PedMgr.h,v 1.8 2006/04/26 20:23:54 fewtrell Exp $
 // LOCAL
 #include "CalibItemMgr.h"
 
 // GLAST
-#include "CalibData/Cal/Ped.h"
 #include "CalUtil/CalDefs.h"
 #include "CalUtil/CalArray.h"
+#include "CalibData/Cal/Ped.h"
 
 // EXTLIB
 // STD
-
-using namespace CalUtil;
-using namespace idents;
-using namespace CalibData;
 
 class CalCalibSvc;
 
@@ -27,17 +23,18 @@ class CalCalibSvc;
 class PedMgr : public CalibItemMgr {
  public:
   PedMgr(CalCalibShared &ccsShared) : 
-    CalibItemMgr(CAL_Ped, ccsShared)
+    CalibItemMgr(ICalibPathSvc::Calib_CAL_Ped, 
+                 ccsShared)
     {};
 
   /// get pedestal vals for given xtal/face/rng
-  const Ped *getPed(RngIdx rngIdx);
+  const CalibData::Ped *getPed(CalUtil::RngIdx rngIdx);
  private:
   StatusCode loadIdealVals();
 
-  bool validateRangeBase(Ped *ped);
+  bool validateRangeBase(CalibData::Ped *ped);
   
-  CalArray<RngNum, Ped> m_idealPeds;
+  CalUtil::CalArray<CalUtil::RngNum, CalibData::Ped> m_idealPeds;
 
   StatusCode genLocalStore();
 };

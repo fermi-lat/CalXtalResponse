@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.5 2006/06/15 20:42:06 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.6 2006/08/05 17:35:20 fewtrell Exp $
 
 // Include files
 /** @file
@@ -285,7 +285,7 @@ StatusCode CalTrigTool::calcXtalTrig(XtalIdx xtalIdx,
 */
 
 StatusCode CalTrigTool::calcGlobalTrig(const CalDigiCol& calDigiCol,
-                                       CalArray<DiodeNum, bool> &trigBits,
+                                       CalUtil::CalArray<CalUtil::DiodeNum, bool> &trigBits,
                                        Event::GltDigi *glt) {
   StatusCode sc;
 

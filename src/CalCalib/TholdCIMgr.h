@@ -1,21 +1,18 @@
 #ifndef TholdCIMgr_H
 #define TholdCIMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/TholdCIMgr.h,v 1.7 2006/01/09 21:08:21 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/TholdCIMgr.h,v 1.8 2006/04/26 20:23:54 fewtrell Exp $
 // LOCAL
 #include "CalibItemMgr.h"
 
 // GLAST
-#include "CalibData/Cal/CalTholdCI.h"
 #include "CalUtil/CalDefs.h"
-#include "CalUtil/CalArray.h"
+#include "CalibData/Cal/CalTholdCI.h"
 
 // EXTLIB
+
 // STD
+#include <memory>
 
-using namespace CalUtil;
-using namespace idents;
-
-using namespace CalibData;
 
 class CalCalibSvc;
 
@@ -28,10 +25,10 @@ class CalCalibSvc;
 class TholdCIMgr : public CalibItemMgr {
  public:
   TholdCIMgr(CalCalibShared &ccsShared) 
-    : CalibItemMgr(CAL_TholdCI, ccsShared)
+    : CalibItemMgr(ICalibPathSvc::Calib_CAL_TholdCI, ccsShared)
     {};
 
-  const CalTholdCI *getTholdCI(FaceIdx faceIdx);
+  const CalibData::CalTholdCI *getTholdCI(CalUtil::FaceIdx faceIdx);
 
  private:
   StatusCode loadIdealVals();
@@ -40,9 +37,9 @@ class TholdCIMgr : public CalibItemMgr {
   StatusCode genLocalStore();
   
   /// Validate TDS data entry (for empty ptrs & fun stuff like that)
-  bool validateRangeBase(CalTholdCI *tholdCI);
+  bool validateRangeBase(CalibData::CalTholdCI *tholdCI);
 
-  auto_ptr<CalTholdCI> m_idealTholdCI;
+  std::auto_ptr<CalibData::CalTholdCI> m_idealTholdCI;
   
 };
 

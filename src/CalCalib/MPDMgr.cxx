@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/MPDMgr.cxx,v 1.6 2006/01/09 21:08:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/MPDMgr.cxx,v 1.7 2006/04/26 20:23:54 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -14,6 +14,8 @@
 using namespace std;
 using namespace CalUtil;
 using namespace idents;
+using namespace CalibData;
+
 
 /// get MeVPerDac ratios for given xtal
 const CalMevPerDac *MPDMgr::getMPD(XtalIdx xtalIdx) {
@@ -46,7 +48,7 @@ StatusCode MPDMgr::genLocalStore() {
 
   for (XtalIdx xtalIdx; xtalIdx.isValid(); xtalIdx++) {
     if (!m_idealMode) {
-      CalMevPerDac *mpd = (CalMevPerDac*)getRangeBase(xtalIdx.getCalXtalId());
+      CalibData::CalMevPerDac *mpd = (CalMevPerDac*)getRangeBase(xtalIdx.getCalXtalId());
       if (!mpd) continue;
       if (!validateRangeBase(mpd)) continue;
       
@@ -58,7 +60,7 @@ StatusCode MPDMgr::genLocalStore() {
   return StatusCode::SUCCESS;
 }
 
-bool MPDMgr::validateRangeBase(CalMevPerDac *mpd) {
+bool MPDMgr::validateRangeBase(const CalMevPerDac *mpd) {
   const ValSig *big = mpd->getBig();
   const ValSig *small = mpd->getSmall();
   if (!big || !small) return false;

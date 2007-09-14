@@ -1,23 +1,19 @@
 #ifndef IntNonlinMgr_H
 #define IntNonlinMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IntNonlinMgr.h,v 1.7 2006/01/09 21:08:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IntNonlinMgr.h,v 1.8 2006/04/26 20:23:54 fewtrell Exp $
 
 // LOCAL
 #include "CalibItemMgr.h"
 
 // GLAST
-#include "CalibData/Cal/IntNonlin.h"
 #include "CalUtil/CalDefs.h"
 #include "CalUtil/CalArray.h"
+#include "CalibData/Cal/IntNonlin.h"
 
 // EXTLIB
 
 // STD
 #include <memory>
-
-using namespace CalUtil;
-using namespace idents;
-using namespace CalibData;
 
 class CalCalibSvc;
 
@@ -31,15 +27,15 @@ class IntNonlinMgr : public CalibItemMgr {
  public:
   IntNonlinMgr(CalCalibShared &ccsShared);
 
-  const vector<float> *getInlAdc(CalUtil::RngIdx rngIdx);
+  const std::vector<float> *getInlAdc(CalUtil::RngIdx rngIdx);
 
-  const vector<float> *getInlCIDAC(CalUtil::RngIdx rngIdx);
+  const std::vector<float> *getInlCIDAC(CalUtil::RngIdx rngIdx);
 
-  StatusCode evalCIDAC(RngIdx rngIdx, float adc, float &cidac) {
+  StatusCode evalCIDAC(CalUtil::RngIdx rngIdx, float adc, float &cidac) {
     return evalSpline(INL_SPLINE, rngIdx, adc, cidac);
   }
   
-  StatusCode evalADC(RngIdx rngIdx, float cidac, float &adc) {
+  StatusCode evalADC(CalUtil::RngIdx rngIdx, float cidac, float &adc) {
     return evalSpline(INV_INL_SPLINE, rngIdx, cidac, adc);
   }
 
@@ -65,12 +61,12 @@ class IntNonlinMgr : public CalibItemMgr {
   depending on the version of the calibration file....  This allows me to keep a homogenous array
   of all floats, one set for every channel, regardless of the original data format.
   */
-  CalArray<RngIdx, vector<float> > m_CIDACs;
+  CalUtil::CalArray<CalUtil::RngIdx, std::vector<float> > m_CIDACs;
 
-  CalArray<RngNum, auto_ptr<IntNonlin> > m_idealINL;
+  CalUtil::CalArray<CalUtil::RngNum, std::auto_ptr<CalibData::IntNonlin> > m_idealINL;
 
   /// check ptr to TDS data
-  bool validateRangeBase(IntNonlin *intNonlin);
+  bool validateRangeBase(CalibData::IntNonlin *intNonlin);
 };
 
 #endif

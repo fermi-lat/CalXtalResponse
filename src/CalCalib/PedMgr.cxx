@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/PedMgr.cxx,v 1.7 2006/01/09 21:08:21 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/PedMgr.cxx,v 1.8 2006/04/26 20:23:54 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
  */
@@ -11,6 +11,7 @@
 
 using namespace CalUtil;
 using namespace idents;
+using namespace CalibData;
 
 /// get pedestal vals for given xtal/face/rng
 const Ped *PedMgr::getPed(RngIdx rngIdx) {

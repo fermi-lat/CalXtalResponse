@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/AsymMgr.cxx,v 1.9 2006/04/26 20:23:53 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/AsymMgr.cxx,v 1.10 2006/08/05 17:35:20 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -21,7 +21,7 @@ using namespace CalibData;
 const float BAD_FLOAT = -99999.9F;
 
 AsymMgr::AsymMgr(CalCalibShared &ccsShared) : 
-  CalibItemMgr(CAL_Asym,
+  CalibItemMgr(ICalibPathSvc::Calib_CAL_Asym,
                ccsShared,
                N_SPLINE_TYPES) 
 {

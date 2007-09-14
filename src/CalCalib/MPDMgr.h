@@ -1,6 +1,6 @@
 #ifndef MPDMgr_H
 #define MPDMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/MPDMgr.h,v 1.6 2006/01/09 21:08:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/MPDMgr.h,v 1.7 2006/04/26 20:23:54 fewtrell Exp $
 // LOCAL
 #include "CalibItemMgr.h"
 
@@ -12,11 +12,6 @@
 // STD
 #include <memory>
 
-using namespace CalUtil;
-using namespace idents;
-using namespace CalibData;
-
-
 class CalCalibSvc;
 
 /** \brief Manage MevPerDAC calibration type
@@ -24,23 +19,22 @@ class CalCalibSvc;
     */
 class MPDMgr : public CalibItemMgr {
  public:
-  MPDMgr(CalCalibShared &ccsShared) : 
-    CalibItemMgr(CAL_MevPerDac, ccsShared) {};
+  MPDMgr(CalCalibShared &ccsShared) :
+    CalibItemMgr(ICalibPathSvc::Calib_CAL_MevPerDac,
+                 ccsShared) {}
 
-  const CalMevPerDac *getMPD(XtalIdx xtalIdx);
+  const CalibData::CalMevPerDac *getMPD(const CalUtil::XtalIdx xtalIdx);
 
  private:
   StatusCode loadIdealVals();
   
   StatusCode genLocalStore();
 
-  bool validateRangeBase(CalMevPerDac *mpd);
-
-  bool validateRangeBase(RangeBase *rangeBase) {return true;}
+  static bool validateRangeBase(const CalibData::CalMevPerDac *mpd);
 
   /// ideal data is not available till after construction & I will be responsible
   /// for memory, hence use of auto_ptr<>
-  auto_ptr<CalMevPerDac> m_idealMPD;
+  std::auto_ptr<CalibData::CalMevPerDac> m_idealMPD;
 };
 
 #endif
