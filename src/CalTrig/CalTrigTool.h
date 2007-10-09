@@ -1,11 +1,11 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.4 2007/09/14 16:03:52 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.5 2007/10/09 19:05:41 fewtrell Exp $
 #ifndef CalTrigTool_h
 #define CalTrigTool_h
 
 // LOCAL
 #include "CalXtalResponse/ICalTrigTool.h"
 #include "CalXtalResponse/ICalCalibSvc.h"
-#include "../Calib/IPrecalcCalibTool.h"
+#include "../CalCalib/IPrecalcCalibTool.h"
 #include "CalXtalResponse/ICalSignalTool.h"
 
 // GLAST
