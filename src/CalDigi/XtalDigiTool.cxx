@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.16 2007/08/24 16:26:21 heather Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.1 2007/10/09 19:05:41 fewtrell Exp $
 
 /** @file     implement XtalDigiTool.h
     @author Zach Fewtrell
@@ -11,7 +11,7 @@
 #include "XtalDigiTool.h"
 #include "../CalFailureMode/CalFailureModeSvc.h"
 #include "CalXtalResponse/ICalCalibSvc.h"
-#include "../Calib/IPrecalcCalibTool.h"
+#include "../CalCalib/IPrecalcCalibTool.h"
 
 // GLAST
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"

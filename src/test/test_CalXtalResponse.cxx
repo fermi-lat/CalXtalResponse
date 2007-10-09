@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.24 2007/05/25 21:32:48 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.25 2007/10/09 19:05:44 fewtrell Exp $
 
 // Include files
 // Gaudi system includes
@@ -10,7 +10,7 @@
 #include "CalXtalResponse/ICalSignalTool.h"
 #include "CalXtalResponse/ICalTrigTool.h"
 #include "../CalFailureMode/ICalFailureModeSvc.h"
-#include "../Calib/IPrecalcCalibTool.h"
+#include "../CalCalib/IPrecalcCalibTool.h"
 
 // GLAST
 #include "geometry/Point.h"
