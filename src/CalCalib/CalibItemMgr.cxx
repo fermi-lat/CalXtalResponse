@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.10 2006/11/20 19:29:38 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.11 2007/09/14 16:03:51 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -21,6 +21,7 @@ using namespace CalUtil;
 
 using namespace std;
 ///////////////// GENERIC UTILITIES //////////////////////////////////
+
 /**
    functional class deletes a pointer
    fun to use w/ for_each template

@@ -1,6 +1,6 @@
 #ifndef IXtalRecTool_H
 #define IXtalRecTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.5 2006/04/26 20:23:53 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.6 2007/03/22 22:38:17 fewtrell Exp $
 /*! @class IXtalRecTool
  *
  * \author Zach Fewtrell
@@ -22,13 +22,12 @@
 
 // STD INCLUDES
 
-static const InterfaceID IID_IXtalRecTool("IXtalRecTool", 1, 2);
+static const InterfaceID IID_IXtalRecTool("IXtalRecTool", 1, 3);
 
 // forward declarations
 namespace Event {
 	class CalDigi;
 	class CalXtalRecData;
-	class EventHeader;
 };
 
 class INeighborXtalkTool;
@@ -60,9 +59,6 @@ class IXtalRecTool : virtual public IAlgTool {
 
 	  \param nbrXtalkTool (optional) pointer to neighboring xtal->xtal electronic crosstalk model
 
-      \param evtHdr (optional) pointer to current event header (used for RunID 
-      & EventID in optional XtalRecTuple)
-
       \return It _is_ possible for this function to return 
       StatusCode::SUCCESS along w/ 0 CalRangeRecData objects.
 
@@ -73,8 +69,7 @@ class IXtalRecTool : virtual public IAlgTool {
                                CalUtil::CalArray<CalUtil::FaceNum, bool> &belowThresh,
                                bool &xtalBelowThresh,
                                CalUtil::CalArray<CalUtil::FaceNum, bool> &saturated,
-							   const INeighborXtalkTool *nbrXtalkTool,
-                               const Event::EventHeader *evtHdr
+                               const INeighborXtalkTool *nbrXtalkTool
                                ) = 0;
 };
 

@@ -1,6 +1,6 @@
 #ifndef CalCalibSvc_H
 #define CalCalibSvc_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.9 2007/03/23 17:35:03 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.10 2007/09/14 16:03:51 fewtrell Exp $
 
 // LOCAL 
 #include "AsymMgr.h"
@@ -32,14 +32,23 @@
     * - extraction of cal-specific constants out of generic data objects
     * - creation/caching of local meta-data objects where needed (e.g. splines)
     *
-    * \author  Zachary Fewtrell
+    * jobOptions:
+    * - CalibDataSvc - calibration data source (default="CalibDataSvc")
+    * - idealCalibXMLPath - source for ideal calibration data (which by-passes the CalibSvc) (default="$(CALXTALRESPONSEROOT)/xml/idealCalib_flight.xml")
+    * - DefaultFlavor - default flavor for all Cal Calibration types (default="ideal")
+    * - FlavorIntNonlin - override default calibration flavor for IntNonlin only (default="" - disabled) 
+    * - FlavorAsym - override default calib flavor for Asymmetry only (default="" - disabled)
+    * - FlavorPed - override default calib flavor for pedestals only (default="" - disabled)
+    * - FlavorMeVPerDac - override default calib flavor for mevPerDAC calibration (default="" - disabled)
+    * - FlavorTholdCI - override default calib flavor for tholdCI calibration (default="" - disabled)
     *
     */
 
-class CalCalibSvc : public Service, virtual public ICalCalibSvc,
-    virtual public IIncidentListener  {
+class CalCalibSvc : public Service, 
+                    virtual public ICalCalibSvc,
+                    virtual public IIncidentListener  {
   
-    public:
+public:
   
   CalCalibSvc(const string& name, ISvcLocator* pSvcLocator); 
   
@@ -99,7 +108,7 @@ class CalCalibSvc : public Service, virtual public ICalCalibSvc,
   }
 
 
-    private:
+private:
   ////////////////////////////////////////////////
   ////// PARAMETER MANAGEMENT ////////////////////
   ////////////////////////////////////////////////
