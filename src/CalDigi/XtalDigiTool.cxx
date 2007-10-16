@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.1 2007/10/09 19:05:41 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.2 2007/10/09 20:38:19 fewtrell Exp $
 
 /** @file     implement XtalDigiTool.h
     @author Zach Fewtrell
@@ -30,6 +30,7 @@
 
 // STD
 #include <map>
+#include <cmath>
 
 using namespace CalUtil;
 using namespace Event;
