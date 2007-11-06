@@ -1,6 +1,6 @@
 #ifndef ICalTrigTool_H
 #define ICalTrigTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/ICalTrigTool.h,v 1.3 2006/04/26 20:23:53 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/ICalTrigTool.h,v 1.4 2007/10/09 19:05:40 fewtrell Exp $
 /*! @class ICalTrigTool
  *
  * \author Zach Fewtrell

@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.18 2007/05/25 21:32:48 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.19 2007/10/09 19:05:41 fewtrell Exp $
 // LOCAL INCLUDES
 #include "../Xtalk/INeighborXtalkTool.h"
 #include "CalXtalResponse/ICalCalibSvc.h"
@@ -137,6 +137,7 @@ CalTupleAlg::CalTupleAlg(const string& name, ISvcLocator* pSvcLocator) :
 StatusCode CalTupleAlg::initialize() {
   StatusCode sc;
   MsgStream msglog(msgSvc(), name());
+  msglog << MSG::INFO << "initialize" << endreq;
         
   //-- JOB OPTIONS --//
   sc = setProperties();

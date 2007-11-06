@@ -1,6 +1,6 @@
 #ifndef INeighborXtalkTool_h
 #define INeighborXtalkTool_h
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/INeighborXtalkTool.h,v 1.1 2007/03/22 22:38:18 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/INeighborXtalkTool.h,v 1.2 2007/03/23 17:35:04 fewtrell Exp $
 
 // LOCAL INCLUDES
 

@@ -1,6 +1,6 @@
 #ifndef CalSignalTool_H
 #define CalSignalTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalSignalTool.h,v 1.9 2007/03/23 17:35:03 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/CalSignalTool.h,v 1.1 2007/10/09 19:05:41 fewtrell Exp $
 
 // LOCAL 
 

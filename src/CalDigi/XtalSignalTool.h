@@ -1,6 +1,6 @@
 #ifndef XtalSignalTool_h
 #define XtalSignalTool_h
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalSignal/XtalSignalTool.h,v 1.9 2007/03/07 22:58:25 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalSignalTool.h,v 1.1 2007/10/09 19:05:41 fewtrell Exp $
 
 // LOCAL
 #include "IXtalSignalTool.h"

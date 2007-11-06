@@ -1,6 +1,6 @@
 #ifndef CalCalibSvc_H
 #define CalCalibSvc_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.10 2007/09/14 16:03:51 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.11 2007/10/09 19:05:40 fewtrell Exp $
 
 // LOCAL 
 #include "AsymMgr.h"

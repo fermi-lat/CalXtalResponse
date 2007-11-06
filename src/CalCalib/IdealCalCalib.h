@@ -1,6 +1,6 @@
 #ifndef IdealCalCalib_H
 #define IdealCalCalib_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IdealCalCalib.h,v 1.5 2006/04/26 20:23:54 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IdealCalCalib.h,v 1.6 2007/09/14 16:03:51 fewtrell Exp $
 
 // LOCAL INCLUDES
 

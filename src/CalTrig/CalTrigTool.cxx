@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.7 2007/09/14 16:03:52 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.8 2007/10/09 19:05:41 fewtrell Exp $
 
 // Include files
 /** @file
@@ -264,9 +264,7 @@ StatusCode CalTrigTool::calcXtalTrig(const Event::CalDigi& calDigi,
   //-- CASE 2: 4RANGE READOUT MODE --//
   else {
     //-- store ped subtracted adc vals --//
-    CalArray<XtalRng, float> adcPed;
-    // "-1" indicates no data for given readout range
-    fill(adcPed.begin(), adcPed.end(), 0);
+    CalArray<XtalRng, float> adcPed(0);
 
     //-- copy over CalDigi data from all available ranges --//
   

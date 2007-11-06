@@ -1,6 +1,6 @@
 #ifndef MPDMgr_H
 #define MPDMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/MPDMgr.h,v 1.7 2006/04/26 20:23:54 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/MPDMgr.h,v 1.8 2007/09/14 16:03:52 fewtrell Exp $
 // LOCAL
 #include "CalibItemMgr.h"
 

@@ -1,6 +1,6 @@
 #ifndef AsymMgr_H
 #define AsymMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/AsymMgr.h,v 1.9 2006/06/15 20:42:05 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/AsymMgr.h,v 1.10 2007/09/14 16:03:51 fewtrell Exp $
 // LOCAL
 #include "CalibItemMgr.h"
 

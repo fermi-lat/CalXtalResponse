@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE calCalib [<!--
-   $Header: /nfs/slac/g/glast/ground/cvs/calibUtil/xml/calCalib_v2r3.dtd,v 1.1 2005/08/01 04:17:56 jrb Exp $
+   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/muonPeds.digitization-licos-v3r6p9_077007133_digi_DIGI.FLIGHT_GAIN.xml,v 1.1 2007/10/09 19:05:44 fewtrell Exp $
 
    /**  @file       calCalib_v2r3.dtd
         @authors    J. Bogart

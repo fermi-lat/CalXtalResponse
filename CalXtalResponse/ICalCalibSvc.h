@@ -1,6 +1,6 @@
 #ifndef ICalCalibSvc_H
 #define ICalCalibSvc_H
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/ICalCalibSvc.h,v 1.10 2006/06/15 20:42:04 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/ICalCalibSvc.h,v 1.11 2007/03/23 17:35:03 fewtrell Exp $
 
 // LOCAL INCLUDES
 

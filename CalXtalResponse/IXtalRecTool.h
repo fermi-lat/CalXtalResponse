@@ -1,6 +1,6 @@
 #ifndef IXtalRecTool_H
 #define IXtalRecTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.6 2007/03/22 22:38:17 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.7 2007/10/09 19:05:40 fewtrell Exp $
 /*! @class IXtalRecTool
  *
  * \author Zach Fewtrell
@@ -66,10 +66,9 @@ class IXtalRecTool : virtual public IAlgTool {
   */
   virtual StatusCode calculate(const Event::CalDigi &digi,
                                Event::CalXtalRecData &xtalRec,
-                               CalUtil::CalArray<CalUtil::FaceNum, bool> &belowThresh,
-                               bool &xtalBelowThresh,
+                               CalUtil::CalArray<CalUtil::FaceNum, bool> &belowNoise,
                                CalUtil::CalArray<CalUtil::FaceNum, bool> &saturated,
-                               const INeighborXtalkTool *nbrXtalkTool
+                               INeighborXtalkTool const*const nbrXtalkTool
                                ) = 0;
 };
 

@@ -1,6 +1,6 @@
 #ifndef CalXtalRecAlg_h
 #define CalXtalRecAlg_h 
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/CalXtalRecAlg.h,v 1.5 2007/03/22 22:38:18 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/CalXtalRecAlg.h,v 1.1 2007/10/09 19:05:41 fewtrell Exp $
 
 
 // LOCAL INCLUDES

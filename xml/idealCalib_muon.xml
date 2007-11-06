@@ -31,8 +31,8 @@ it incoperates the following improvements over the prievous version.
 -->
 
 
-<ifile cvs_Header="$Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/xml/idealCalib_muon.xml,v 1.5 2005/10/19 21:39:24 fewtrell Exp $"
- cvs_Revision="$Revision: 1.5 $" >
+<ifile cvs_Header="$Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/xml/idealCalib_muon.xml,v 1.6 2006/04/26 20:23:55 fewtrell Exp $"
+ cvs_Revision="$Revision: 1.6 $" >
 
   <section name = "PEDESTALS">
     <item name  = "VALS"    value = "510, 210, 510, 210"> 1 pedestal value per ADC range           </item>

@@ -1,4 +1,4 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.5 2007/10/09 19:05:41 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.6 2007/10/09 21:05:52 fewtrell Exp $
 #ifndef CalTrigTool_h
 #define CalTrigTool_h
 

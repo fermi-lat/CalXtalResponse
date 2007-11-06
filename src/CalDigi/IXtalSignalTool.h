@@ -1,6 +1,6 @@
 #ifndef IXtalSignalTool_H
 #define IXtalSignalTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalSignalTool.h,v 1.7 2006/04/26 20:23:53 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/IXtalSignalTool.h,v 1.1 2007/10/09 19:05:41 fewtrell Exp $
 /*! @class IXtalSignalTool
  *
  * \author Zach Fewtrell

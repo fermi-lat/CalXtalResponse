@@ -1,6 +1,6 @@
 #ifndef IXtalDigiTool_H
 #define IXtalDigiTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalDigiTool.h,v 1.7 2006/04/26 20:23:53 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalDigiTool.h,v 1.8 2007/10/09 19:05:40 fewtrell Exp $
 /*! @class IXtalDigiTool
  *
  * \author Zach Fewtrell

@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.11 2007/09/14 16:03:51 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.12 2007/10/09 19:05:40 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -69,6 +69,10 @@ StatusCode CalibItemMgr::initialize(const string &flavor) {
     // it's a hack, but so be it.
     sc = genLocalStore();
     if (sc.isFailure()) return sc;
+
+    // create MsgStream only when needed (for performance)
+    MsgStream msglog(m_ccsShared.m_service->msgSvc(), m_ccsShared.m_service->name()); 
+    msglog << MSG::INFO << m_calibPath << " Overriding CalibSvc with ideal calibrations." << endreq;
 
     m_serNo = SERNO_IDEAL;
   }

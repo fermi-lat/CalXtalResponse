@@ -2,7 +2,7 @@
 // Job Option file for readigi_runrecon:
 // Read in a digi Root file and run recon on it!
 //
-// $Header:/nfs/slac/g/glast/ground/cvs/Gleam/src/jobOptions/pipeline/readigi_runrecon.txt,v1.3 2006/06/06 05:51:48 heather Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/caltuple_only_jo.txt,v 1.1 2007/03/15 16:06:28 fewtrell Exp $
 //
 // Things to be changed by the user can
 // be found at the end of the file!

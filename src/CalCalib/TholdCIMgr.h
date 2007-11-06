@@ -1,6 +1,6 @@
 #ifndef TholdCIMgr_H
 #define TholdCIMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/TholdCIMgr.h,v 1.8 2006/04/26 20:23:54 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/TholdCIMgr.h,v 1.9 2007/09/14 16:03:52 fewtrell Exp $
 // LOCAL
 #include "CalibItemMgr.h"
 

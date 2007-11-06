@@ -1,6 +1,6 @@
 #ifndef ICalSignalTool_H
 #define ICalSignalTool_H
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/ICalSignalTool.h,v 1.11 2007/03/23 17:35:03 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/ICalSignalTool.h,v 1.1 2007/10/09 19:05:40 fewtrell Exp $
 
 // LOCAL INCLUDES
 

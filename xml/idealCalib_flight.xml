@@ -25,8 +25,8 @@ pedestal noise & LAC settings higher to accomodate expected higher noise levels 
 -->
 <!DOCTYPE ifile SYSTEM "$(XMLBASEROOT)/xml/ifile.dtd" >
 
-<ifile cvs_Header="$Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/xml/idealCalib_flight.xml,v 1.8 2005/10/19 21:39:24 fewtrell Exp $"
- cvs_Revision="$Revision: 1.8 $" >
+<ifile cvs_Header="$Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/xml/idealCalib_flight.xml,v 1.9 2006/04/26 20:23:55 fewtrell Exp $"
+ cvs_Revision="$Revision: 1.9 $" >
 
   <section name = "PEDESTALS">
     <item name  = "VALS"    value = "510,   210, 510, 210"> 1 pedestal value per ADC range           </item>
