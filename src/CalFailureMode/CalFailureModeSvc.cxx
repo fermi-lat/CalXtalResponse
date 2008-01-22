@@ -2,9 +2,13 @@
 // for the CAL.
 // 
 //
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalFailureMode/CalFailureModeSvc.cxx,v 1.1 2006/06/15 20:42:05 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalFailureMode/CalFailureModeSvc.cxx,v 1.2 2007/11/06 20:54:00 fewtrell Exp $
 //
 // Author: Richard Dubois
+/** @file     
+    @author Z.Fewtrell
+
+*/
 
 
 #include "CalFailureModeSvc.h"

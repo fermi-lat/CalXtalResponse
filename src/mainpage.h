@@ -1,8 +1,8 @@
 /** @file
     Mainpage for doxygen
-    @author Zach Fewtrell
+    @author Z.Fewtrell
 */
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.18 2007/10/09 19:05:40 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.19 2007/11/06 20:53:59 fewtrell Exp $
 
 /** 
     @mainpage package CalXtalResponse

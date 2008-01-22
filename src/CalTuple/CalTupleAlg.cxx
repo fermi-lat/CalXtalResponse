@@ -1,4 +1,9 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.19 2007/10/09 19:05:41 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.20 2007/11/06 20:54:00 fewtrell Exp $
+
+/** @file
+    @author Z.Fewtrell
+*/
+
 // LOCAL INCLUDES
 #include "../Xtalk/INeighborXtalkTool.h"
 #include "CalXtalResponse/ICalCalibSvc.h"
@@ -42,7 +47,7 @@ using namespace idents;
     - tupleFilename         - Optional tuple filename (default is combined with other RootTupleSvc output)
     - NeighborXtalkToolName - (optional) used to correct for bias caused by neighboring crystal electronic crosstalk. (default="" - disabled)
 
-    @author Zach Fewtrell
+    @author Z.Fewtrell
 */
 class CalTupleAlg : public Algorithm {
 public:
@@ -134,6 +139,7 @@ CalTupleAlg::CalTupleAlg(const string& name, ISvcLocator* pSvcLocator) :
   declareProperty("NeighborXtalkToolName", m_xtalkToolName="");
 }
 
+/// init / retreive all Gaudi objects
 StatusCode CalTupleAlg::initialize() {
   StatusCode sc;
   MsgStream msglog(msgSvc(), name());

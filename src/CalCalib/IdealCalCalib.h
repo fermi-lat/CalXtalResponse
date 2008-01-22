@@ -1,6 +1,9 @@
 #ifndef IdealCalCalib_H
 #define IdealCalCalib_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IdealCalCalib.h,v 1.6 2007/09/14 16:03:51 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IdealCalCalib.h,v 1.7 2007/11/06 20:54:00 fewtrell Exp $
+/** @file
+    @author Z.Fewtrell
+*/
 
 // LOCAL INCLUDES
 
@@ -15,7 +18,7 @@
 
 
 /** @class IdealCalCalib
-    @author Zachary Fewtrell
+    @author Z.Fewtrell
     \brief Contains all values necessary to generate full set of ideal cal
     calibration constants
     
@@ -95,18 +98,6 @@ class IdealCalCalib {
   
 
   ///////////////////
-  //// THOLD_MUON ///
-  ///////////////////
-  /// FLE threshold 
-  float muonFLE;               
-  /// FHE threshold 
-  float muonFHE;               
-  /// sigma/val for all vals in THOLD_MUON group 
-  float muonSigPct;            
-  /// 1 pedestal value per ADC range      
-  std::vector<double> muonPeds;      
-
-  ///////////////////
   //// INT_NONLIN ///
   ///////////////////
   /// ADC/DAC for each ADC range 
@@ -117,11 +108,15 @@ class IdealCalCalib {
  private:
 
   //-- SECTION DECRIPTION STRINGS --//
+  /// xml tag name 
   static const std::string PEDS;
+  /// xml tag name 
   static const std::string ASYM;
+  /// xml tag name
   static const std::string THOLD_CI;
-  static const std::string THOLD_MUON;
+  /// xml tag name
   static const std::string INL;
+  /// xml tag name
   static const std::string MPD;
 };
 

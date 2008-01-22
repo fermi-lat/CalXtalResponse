@@ -1,7 +1,7 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.10 2007/03/22 22:38:18 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.11 2007/10/09 19:05:41 fewtrell Exp $
 /** 
  * @file
- * @author Zach Fewtrell
+ * @author Z.Fewtrell
  * @brief This is needed for forcing the linker to load all components
  * of the library.
  *
@@ -9,8 +9,6 @@
 
 #include "GaudiKernel/DeclareFactoryEntries.h"
 #include "GaudiKernel/IToolFactory.h"
-
-#define DLL_DECL_TOOL(x)       extern const IToolFactory& x##Factory; x##Factory.addRef();
 
 #define DLL_DECL_TOOL(x)       extern const IToolFactory& x##Factory; x##Factory.addRef();
 

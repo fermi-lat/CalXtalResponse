@@ -1,4 +1,7 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/CalXtalRespRandom.cxx,v 1.3 2006/01/09 21:08:22 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/CalXtalRespRandom.cxx,v 1.1 2007/10/09 19:05:41 fewtrell Exp $
+/** @file 
+    @author Z.Fewtrell
+*/
 
 #include "GlastSvc/GlastRandomSvc/IRandomAccess.h"
 #include "GlastSvc/GlastRandomSvc/RandomAccess.h"
