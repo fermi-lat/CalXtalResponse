@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.4 2007/11/06 20:54:00 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.5 2008/01/22 20:14:48 fewtrell Exp $
 
 /** @file     
     @author Z.Fewtrell
@@ -146,9 +146,10 @@ StatusCode XtalDigiTool::initialize() {
     - generate CalDigi object
   
 */
+
 StatusCode XtalDigiTool::calculate(Event::CalDigi &calDigi,
                                    CalUtil::CalVec<CalUtil::FaceNum, bool> &lacBits,
-                                   const bool zeroSuppress) {
+                                   const bool zeroSuppress, CalUtil::CalFirstRng calFirstRng) {
   StatusCode sc;
 
   const CalXtalId xtalId = calDigi.getPackedId();
@@ -209,16 +210,30 @@ StatusCode XtalDigiTool::calculate(Event::CalDigi &calDigi,
   //////////////////////////////
   // Stage 4: Range Selection //
   //////////////////////////////
+
   CalVec<FaceNum, RngNum> bestRng;
-  sc = rangeSelect(xtalIdx, adcPed, bestRng);
-  if (sc.isFailure()) return sc;
-    
+
   ///////////////////////////////////////
   //-- STEP 5: Populate Return Vars --//
   ///////////////////////////////////////
   // generate xtalDigReadouts.
-  sc = fillDigi(calDigi, adcPed, bestRng, failureStatus);
-  if (sc.isFailure()) return sc;
+
+  if(calFirstRng== AUTO)  // default (best range) R/O mode
+  {
+      sc= rangeSelect(xtalIdx, adcPed, bestRng);
+      if(sc.isFailure()) return sc;
+
+      sc= fillDigi(calDigi, adcPed, bestRng, failureStatus);
+  }
+  else
+  {                       // forced range R/O mode
+      CalVec<FaceNum, RngNum> forcRng;
+      forcRng[0]= calFirstRng;
+      forcRng[1]= calFirstRng;
+      sc= fillDigi(calDigi, adcPed, forcRng, failureStatus);
+  }
+      
+  if(sc.isFailure()) return sc;
 
   return StatusCode::SUCCESS;
 }

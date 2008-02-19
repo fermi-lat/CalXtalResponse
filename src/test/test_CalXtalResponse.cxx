@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.28 2007/11/06 20:54:02 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.29 2008/01/22 20:14:51 fewtrell Exp $
 
 /** @file
     @author Z.Fewtrell
@@ -85,7 +85,8 @@ class ICalCalibSvc;
     - CalXtalRecAlg (incl (XtalRecTool)
 
     @ todo
-    - direct diode deposits
+    - test andrey's forced first range code (EZ)
+    - direct diode deposits 
     - CalTupleAlg - not sure how to arrange this without creating
     unwanted output file.
     - noise simulation test

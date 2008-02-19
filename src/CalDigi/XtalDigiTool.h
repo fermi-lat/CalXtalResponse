@@ -1,6 +1,6 @@
 #ifndef XtalDigiTool_h
 #define XtalDigiTool_h
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.h,v 1.2 2007/11/06 20:54:00 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.h,v 1.3 2008/01/22 20:14:48 fewtrell Exp $
 // @file
 //
 //
@@ -14,7 +14,7 @@
 #include "CalUtil/CalDefs.h"
 #include "CalUtil/CalVec.h"
 #include "CalUtil/CalArray.h"
-
+#include "CalUtil/CalConfig.h"
 
 // EXTLIB
 #include "GaudiKernel/AlgTool.h"
@@ -57,7 +57,7 @@ public:
 
   StatusCode calculate(Event::CalDigi &calDigi,
                        CalUtil::CalVec<CalUtil::FaceNum, bool> &lacBits,
-                       bool zeroSuppress
+                       bool zeroSuppress, CalUtil::CalFirstRng calFirstRng
                        );
 private:
   
