@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.6 2008/02/19 20:32:43 makeev Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.7 2008/02/21 16:20:12 makeev Exp $
 
 /** @file     
     @author Z.Fewtrell
@@ -226,7 +226,6 @@ StatusCode XtalDigiTool::calculate(Event::CalDigi &calDigi,
       if(sc.isFailure()) return sc;
 
       sc= fillDigi(calDigi, adcPed, bestRng, failureStatus);
-      std::cout << "AUTO: " << bestRng[0] << " " << bestRng[1] << std::endl;
   }
   else                         // forced range R/O mode
   {
@@ -259,7 +258,6 @@ StatusCode XtalDigiTool::calculate(Event::CalDigi &calDigi,
           }
           
           sc= fillDigi(calDigi, adcPed, forcRng, failureStatus);
-          std::cout << "FORC: " << forcRng[0] << " " << forcRng[1] << std::endl;
       }
       else
       {
