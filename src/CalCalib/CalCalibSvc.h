@@ -1,6 +1,6 @@
 #ifndef CalCalibSvc_H
 #define CalCalibSvc_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.12 2007/11/06 20:54:00 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.13 2008/01/22 20:14:47 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -117,7 +117,7 @@ public:
   /// result in given ADC readout for given ADC channel
   StatusCode evalFaceSignal(CalUtil::RngIdx rngIdx, float adc, float &ene);
 
-  /// get MeVPerDAC value for given diode.
+  /// get MeVPerDAC value for single diode (instead of both faces)
   StatusCode getMPDDiode(CalUtil::DiodeIdx diodeIdx, float &mpdDiode);
 
   /// get light asymmetry associated with deposit at center of given crystal

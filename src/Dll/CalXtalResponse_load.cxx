@@ -1,4 +1,4 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.11 2007/10/09 19:05:41 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Dll/CalXtalResponse_load.cxx,v 1.12 2008/01/22 20:14:48 fewtrell Exp $
 /** 
  * @file
  * @author Z.Fewtrell
@@ -27,6 +27,7 @@ DECLARE_FACTORY_ENTRIES(CalXtalResponse) {
   DLL_DECL_TOOL( NeighborXtalkTool );
   DLL_DECL_TOOL( CalSignalTool );
   DLL_DECL_TOOL( XtalSignalTool );
+  DLL_DECL_TOOL( CalDiagnosticTool );
   
   DLL_DECL_TOOL( CalXtalRespRandom );
 } 

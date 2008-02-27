@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.28 2007/11/06 20:54:02 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/TestCfg.cxx,v 1.1 2008/01/22 20:14:49 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 
@@ -107,6 +107,8 @@ namespace CalXtalResponse {
 
 
     zeroSuppress = CLHEP::RandFlat::shootBit();
+
+    createDiagnosticData = CLHEP::RandFlat::shootBit();
       
   }
 
@@ -141,6 +143,7 @@ namespace CalXtalResponse {
            << " N_HITS=" << testCfg.xtalHits.size()
            << " TRIG_MODE " << testCfg.trigMode
            << " zeroSuppress " << testCfg.zeroSuppress
+		   << " diag " << testCfg.createDiagnosticData
            << endl;
 
     for (TestCfg::XtalList::const_iterator xtalIt(testCfg.testXtals.begin());

@@ -1,6 +1,6 @@
 #ifndef test_util_h
 #define test_util_h
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_util.h,v 1.1 2008/01/22 20:14:51 fewtrell Exp $
 
 // STD INCLUDES
 #include <cmath>
@@ -23,7 +23,7 @@ namespace CalXtalResponse {
   static const float MAX_SPLINE_DIFF = .005;
 
   /// possible variation in asymmetry curves (muon based HE calibration has high error on each point)
-  static const float MAX_ASYM_DIFF = .1;
+  static const float MAX_ASYM_DIFF = .07;
 
 
   inline float abs_diff(const float a, const float b) {

@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.9 2007/11/06 20:54:00 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.10 2008/01/22 20:14:48 fewtrell Exp $
 
 // Include files
 
@@ -47,6 +47,7 @@ CalTrigTool::CalTrigTool( const std::string& type,
                           const IInterface* parent)
   : AlgTool(type,name,parent),
     m_calCalibSvc(0),
+    m_precalcCalibTool(0),
     m_evtSvc(0),
     m_calSignalTool(0),
     m_detSvc(0),

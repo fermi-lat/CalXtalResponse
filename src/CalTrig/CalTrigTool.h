@@ -1,4 +1,4 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.7 2007/11/06 20:54:00 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.8 2008/01/22 20:14:48 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -6,8 +6,6 @@
 #ifndef CalTrigTool_h
 #define CalTrigTool_h
 
-#include "Event/Digi/CalDigi.h"
-#include "GaudiKernel/AlgTool.h"
 
 
 // LOCAL
@@ -20,9 +18,11 @@
 #include "CalUtil/CalDefs.h"
 #include "CalUtil/CalVec.h"
 #include "Event/Digi/GltDigi.h"
+#include "Event/Digi/CalDigi.h"
 
 // EXTLIB
 #include "GaudiKernel/IIncidentListener.h"
+#include "GaudiKernel/AlgTool.h"
 
 
 // STD
