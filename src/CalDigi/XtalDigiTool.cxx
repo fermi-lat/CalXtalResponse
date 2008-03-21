@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.7 2008/02/21 16:20:12 makeev Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.8 2008/02/21 16:44:59 makeev Exp $
 
 /** @file     
     @author Z.Fewtrell
@@ -206,6 +206,7 @@ StatusCode XtalDigiTool::calculate(Event::CalDigi &calDigi,
                                 cidac[xDiode],
                                 adcPed[xRng]);
     if (sc.isFailure()) return sc;   
+
   } // xRng
   
   //////////////////////////////
@@ -361,6 +362,7 @@ StatusCode XtalDigiTool::fillDigi(CalDigi &calDigi,
       // may clip HEX1 to HEX1 saturation point
       adc[face] = max<float>(0, adcPed[xRng] + ped);
       adc[face] = round_int(min<float>(m_maxAdc, adc[face]));
+
     }
       
     CalDigi::CalXtalReadout ro = CalDigi::CalXtalReadout(roRange[POS_FACE].val(), 
@@ -368,6 +370,7 @@ StatusCode XtalDigiTool::fillDigi(CalDigi &calDigi,
                                                          roRange[NEG_FACE].val(), 
                                                          (short)adc[NEG_FACE], 
                                                          failureStatus);
+
     calDigi.addReadout(ro);
   }
   
