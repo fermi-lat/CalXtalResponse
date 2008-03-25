@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.10 2008/01/22 20:14:48 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.11 2008/02/27 20:22:08 fewtrell Exp $
 
 // Include files
 
@@ -321,8 +321,6 @@ StatusCode CalTrigTool::calcXtalTrig(const XtalIdx xtalIdx,
 
   for (FaceNum face; face.isValid(); face++) {
     const FaceIdx faceIdx(xtalIdx, face);
-    const XtalDiode xDiodeLrg(face, LRG_DIODE);
-    const XtalDiode xDiodeSm(face,  SM_DIODE);
 
     // FLE //
     //-- RETRIEVE THESHOLD CALIB (per-face) --//
@@ -377,8 +375,6 @@ StatusCode CalTrigTool::calcXtalTrig(const XtalIdx xtalIdx,
   //-- RETRIEVE CALIB --//
   for (FaceNum face; face.isValid(); face++) {
     const FaceIdx faceIdx(xtalIdx,face);
-    const XtalDiode xDiodeLrg(face, LRG_DIODE);
-    const XtalDiode xDiodeSm(face,  SM_DIODE);
 
     // FLE //
     DiodeIdx diodeIdx(faceIdx, LRG_DIODE);

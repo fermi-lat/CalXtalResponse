@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/TestCfg.cxx,v 1.1 2008/01/22 20:14:49 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/TestCfg.cxx,v 1.2 2008/02/27 20:22:09 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 
@@ -43,7 +43,7 @@ namespace {
   static std::auto_ptr<CalXtalResponse::TestCfg> _testCfg;
   
   /// intended LAC threshold in mev
-  const static float LAC_MEV_INTENT = 2.0;
+  static const float LAC_MEV_INTENT = 2.0;
 
 }
 

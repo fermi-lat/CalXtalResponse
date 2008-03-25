@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IntNonlinMgr.cxx,v 1.10 2007/09/14 16:03:52 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/IntNonlinMgr.cxx,v 1.11 2008/01/22 20:14:47 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -241,6 +241,13 @@ StatusCode IntNonlinMgr::evalADC(const CalUtil::RngIdx rngIdx, const float cidac
 
     // ceiling check
     adc = min(m_splineYMax[INV_INL_SPLINE][rngIdx],adc);
+
+#if 0
+    cout << "evalADC() cidac " << cidac
+         << " adc " << adc
+         << " " << adc/cidac
+         << endl;
+#endif
 
     return StatusCode::SUCCESS;
 }

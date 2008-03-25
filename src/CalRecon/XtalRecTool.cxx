@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.cxx,v 1.2 2007/11/06 20:54:00 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.cxx,v 1.3 2008/01/22 20:14:48 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -127,8 +127,6 @@ StatusCode XtalRecTool::calculate(const Event::CalDigi &digi,
                                   CalVec<FaceNum, bool> &belowNoise,
                                   CalVec<FaceNum, bool> &saturated,
                                   INeighborXtalkTool const*const xtalkTool) {
-  StatusCode sc;
-
   // initialize return values
   fill(belowNoise.begin(), belowNoise.end(), false);
   fill(saturated.begin(), saturated.end(), false);

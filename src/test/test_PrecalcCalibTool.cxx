@@ -1,4 +1,4 @@
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_PrecalcCalibTool.cxx,v 1.1 2008/01/22 20:14:51 fewtrell Exp $
 /** @file 
     @author Z.Fewtrell
 */
@@ -168,7 +168,6 @@ StatusCode test_PrecalcCalibTool::verify(IPrecalcCalibTool &precalcCalibTool,
                                          ICalCalibSvc &calCalibSvc,
                                          const CalXtalResponse::TestCfg &testCfg,
                                          const TwrSet &twrSet) {
-  StatusCode sc;
   MsgStream msglog(m_msgSvc, "test_PrecalcCalibTool");   
 
   // xtal loop

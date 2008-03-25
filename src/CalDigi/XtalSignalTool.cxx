@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalSignalTool.cxx,v 1.1 2007/10/09 19:05:41 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalSignalTool.cxx,v 1.2 2008/01/22 20:14:48 fewtrell Exp $
 
 /** @file implement XtalSignalTool.h
     @author Z.Fewtrell
@@ -227,10 +227,10 @@ StatusCode XtalSignalTool::sumCsIHit(const Event::McIntegratingHit &hit,
 
 #if 0 // debug printing
   cout << "XtalSignalTool::sumCsIHit(): " << m_dat.xtalIdx.toStr() 
-	   << " " << ene
-	   << " " << realpos
-	   << " " << asymL
-	   << " " << asymS
+       << " " << ene
+       << " " << realpos
+       << " " << asymL
+       << " " << asymS
        << endl;
   for (XtalDiode xDiode;xDiode.isValid(); xDiode++)
 	  cout << " " << xDiode.val() << " " << cidacArray[xDiode] << endl;
