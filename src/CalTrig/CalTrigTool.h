@@ -1,4 +1,4 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.8 2008/01/22 20:14:48 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.9 2008/02/27 20:22:08 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -153,7 +153,12 @@ private:
 
   /// if current private data store is valid
   bool m_isValid;
-
+  
+  /// CAL rows/columns selection for FLE/FHE trigger generation:
+  /// "default" - enable all channels to produce trigger
+  /// "erec"    - enable only even columns in even rows and odd columns in odd rows
+  /// "eroc"    - enable only odd columns in even rows and even columns in odd rows
+  StringProperty m_selectionRule;
 };
 
 
