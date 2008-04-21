@@ -1,6 +1,6 @@
 #ifndef XtalSignalTool_h
 #define XtalSignalTool_h
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalSignalTool.h,v 1.2 2007/11/06 20:54:00 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalSignalTool.h,v 1.3 2008/01/22 20:14:48 fewtrell Exp $
 /** @file 
     @author Z.Fewtrell
 */
@@ -107,7 +107,7 @@ private:
   struct AlgData {
     void Clear() {
 		fill(diodeCIDAC.begin(), diodeCIDAC.end(),0);
-		xtalIdx = CalUtil::XtalIdx(0);
+		xtalIdx = CalUtil::XtalIdx(); //< 0
 		fill(mpd.begin(), mpd.end(),0);
 	}
 

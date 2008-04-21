@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.12 2008/03/25 16:04:56 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.13 2008/04/15 15:39:24 makeev Exp $
 
 // Include files
 
@@ -187,9 +187,7 @@ StatusCode CalTrigTool::calcGlobalTrigSignalTool() {
       for (ColNum col; col.isValid(); col++) {
         
         // assemble current calXtalId
-        const XtalIdx xtalIdx(twr.val(),
-                              lyr.val(),
-                              col.val());
+        const XtalIdx xtalIdx(twr,lyr, col);
 
         StatusCode sc = calcXtalTrigSignalTool(xtalIdx);
         if (sc.isFailure())
