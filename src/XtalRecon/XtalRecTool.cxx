@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/XtalRecTool.cxx,v 1.16 2007/04/03 19:16:16 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalRecon/Attic/XtalRecTool.cxx,v 1.17 2007/05/25 21:32:48 fewtrell Exp $
 /** @file
     @author Zach Fewtrell
 */
@@ -491,10 +491,13 @@ StatusCode XtalRecTool::retrieveCalib() {
                   face, m_dat.rng[face]);
 
     // pedestals
-    const Ped* ped = m_calCalibSvc->getPed(rngIdx);
-    if (!ped) return StatusCode::FAILURE;
-    m_dat.ped[face] = ped->getAvr();
-    m_dat.pedSig[face] = ped->getSig();
+    float ped,sig;
+    StatusCode sc = m_calCalibSvc->getPed(rngIdx,ped);
+    if (sc.isFailure()) return StatusCode::FAILURE;
+    sc = m_calCalibSvc->getPedSig(rngIdx,sig);
+    if (sc.isFailure()) return StatusCode::FAILURE;
+    m_dat.ped[face] = ped;
+    m_dat.pedSig[face] = sig;
 
     // Threshold constants
     const CalTholdCI *tholdCI = m_calCalibSvc->getTholdCI(faceIdx);

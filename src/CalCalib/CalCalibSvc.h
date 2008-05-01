@@ -1,6 +1,6 @@
 #ifndef CalCalibSvc_H
 #define CalCalibSvc_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.9 2007/03/23 17:35:03 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.10 2007/09/14 16:03:51 fewtrell Exp $
 
 // LOCAL 
 #include "AsymMgr.h"
@@ -11,8 +11,12 @@
 #include "IdealCalCalib.h"
 #include "CalCalibShared.h"
 
+
 // GLAST 
 #include "CalXtalResponse/ICalCalibSvc.h"
+#include "CalUtil/CalDefs.h"
+#include "CalUtil/CalVec.h"
+
 
 // EXTLIB
 #include "GaudiKernel/IDataProviderSvc.h"
@@ -63,7 +67,11 @@ class CalCalibSvc : public Service, virtual public ICalCalibSvc,
   const std::vector<float> *getInlCIDAC(CalUtil::RngIdx rngIdx) {
     return m_inlMgr.getInlCIDAC(rngIdx);}
 
-  const CalibData::Ped *getPed(CalUtil::RngIdx rngIdx) {return m_pedMgr.getPed(rngIdx);}
+  //  const CalibData::Ped *getPed(CalUtil::RngIdx rngIdx);
+
+  StatusCode getPed(CalUtil::RngIdx rngIdx, float &ped);
+  StatusCode getPedSig(CalUtil::RngIdx rngIdx, float &sig);
+
 
   const CalibData::CalAsym *getAsym(CalUtil::XtalIdx xtalIdx) {return m_asymMgr.getAsym(xtalIdx);}
   
@@ -118,7 +126,24 @@ class CalCalibSvc : public Service, virtual public ICalCalibSvc,
   /// calib flavor override for MeVPerDac constants
   StringProperty m_flavorMPD;            
   /// calib flavor override for CI measured thresholds
-  StringProperty m_flavorTholdCI;        
+  StringProperty m_flavorTholdCI;
+  /// file with CU CAL tower temperature measurements
+  StringProperty m_temperatureFile;
+  /// file with pedestal temperature correction data
+  StringProperty m_pedTempCorFile;
+
+  ///CU temperature measurements table
+  vector<int  > m_tempTime;
+  vector<float> m_cuTwrTemp[4];
+  float m_cur_temp_twr[4];
+  int m_nEvent;
+
+  ///CU pedestal temperature correction data
+ 
+    CalUtil::CalVec<CalUtil::RngIdx, float> m_pedT0;
+    CalUtil::CalVec<CalUtil::RngIdx, float> m_pedTempCoef;
+
+     
 
 
   /// this class is shared amongt the CalibItemMgr classes
@@ -129,6 +154,11 @@ class CalCalibSvc : public Service, virtual public ICalCalibSvc,
   AsymMgr      m_asymMgr;
   MPDMgr       m_mpdMgr;
   TholdCIMgr   m_tholdCIMgr;
+
+  IDataProviderSvc* m_eventSvc;
+
+  /// set to true when we have retrieved event time for current event.
+  bool m_gotPedTime;
 
   /// hook the BeginEvent so that we can check our validity once per event.
   void handle ( const Incident& inc );

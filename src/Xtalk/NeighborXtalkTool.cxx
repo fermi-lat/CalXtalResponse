@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/NeighborXtalkTool.cxx,v 1.2 2007/03/23 17:35:04 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/NeighborXtalkTool.cxx,v 1.3 2007/03/23 17:47:35 fewtrell Exp $
 
 /** @file
     @author Zach Fewtrell
@@ -281,17 +281,18 @@ StatusCode NeighborXtalkTool::buildSignalMap(const Event::CalDigiCol &digiCol) {
       RngIdx rngIdx(faceIdx,rng);
 
       // pedestal subtract
-      const CalibData::Ped *ped = m_calCalibSvc->getPed(rngIdx);
-      if (!ped) {
+      float ped;
+      StatusCode sc = m_calCalibSvc->getPed(rngIdx,ped);
+      if (sc.isFailure()) {
         MsgStream msglog(msgSvc(), name());
         msglog << MSG::ERROR << "can't find cal ped for given digi channel: " << rngIdx.toStr() << endreq;
         return StatusCode::FAILURE;
       }
-      float adcPed = adc - ped->getAvr();
+      float adcPed = adc - ped;
           
       // evaluate CIDAC signal
       float cidac = 0;
-      StatusCode sc(m_calCalibSvc->evalCIDAC(rngIdx, adcPed, cidac));
+      sc = m_calCalibSvc->evalCIDAC(rngIdx, adcPed, cidac);
       if (sc.isFailure()) return sc;
 
       m_signalMap[faceIdx] = cidac;

@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.6 2006/08/05 17:35:20 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.7 2007/09/14 16:03:52 fewtrell Exp $
 
 // Include files
 /** @file
@@ -105,9 +105,10 @@ StatusCode CalTrigTool::calcXtalTrig(XtalIdx xtalIdx,
     //-- retrieve pedestals 
     RngIdx rngIdx(xtalIdx,
                   face, rng);
-    const Ped *ped = m_calCalibSvc->getPed(rngIdx);
-    if (!ped) return StatusCode::FAILURE;
-    float adcPed = adc - ped->getAvr();
+    float ped;
+    sc = m_calCalibSvc->getPed(rngIdx,ped);
+    if (sc.isFailure()) return StatusCode::FAILURE;
+    float adcPed = adc - ped;
 
     //-- eval faceSignal 
     sc = m_calCalibSvc->evalFaceSignal(rngIdx, adcPed, ene);
@@ -237,11 +238,12 @@ StatusCode CalTrigTool::calcXtalTrig(const Event::CalDigi& calDigi,
         RngIdx rngIdx(xtalIdx,
                       face, rng);
 
-        const Ped *ped = m_calCalibSvc->getPed(rngIdx);
-        if (!ped) return StatusCode::FAILURE;
+	float ped;
+        StatusCode sc = m_calCalibSvc->getPed(rngIdx,ped);
+        if (sc.isFailure()) return StatusCode::FAILURE;
         
         adcPed[XtalRng(face, rng)]  = 
-          (*ro).getAdc(face) - ped->getAvr();
+          (*ro).getAdc(face) - ped;
       }
 
     return calcXtalTrig(xtalIdx, adcPed, trigBits, glt);

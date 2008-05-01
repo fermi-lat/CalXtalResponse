@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.17 2007/04/13 15:48:10 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.18 2007/05/25 21:32:48 fewtrell Exp $
 // LOCAL INCLUDES
 #include "../Xtalk/INeighborXtalkTool.h"
 #include "CalXtalResponse/ICalCalibSvc.h"
@@ -288,11 +288,12 @@ StatusCode CalTupleAlg::execute() {
 
         // get pedestals
         // pedestals
-        const Ped* ped= m_calCalibSvc->getPed(rngIdx);
-        if (!ped) return StatusCode::FAILURE;
+	float ped;
+        sc = m_calCalibSvc->getPed(rngIdx,ped);
+        if (sc.isFailure()) return StatusCode::FAILURE;
 
         // ped subtracted ADC
-        float adcPed = adc - ped->getAvr();
+        float adcPed = adc - ped;
 
         //-- face signal --//
         if (adcPed > 0) {
@@ -332,11 +333,12 @@ StatusCode CalTupleAlg::execute() {
           // get pedestals
           // pedestals
           RngIdx rngIdx(xtalIdx, face, rng);
-          const Ped *ped = m_calCalibSvc->getPed(rngIdx);
-          if (!ped) return StatusCode::FAILURE;
+	  float ped;
+          sc = m_calCalibSvc->getPed(rngIdx,ped);
+          if (sc.isFailure()) return StatusCode::FAILURE;
             
           // ped subtracted ADC
-          float adcPed = adc - ped->getAvr();
+          float adcPed = adc - ped;
             
           m_tupleEntry.m_calXtalAdcPedAllRange[twr.val()][lyr.val()][col.val()][face.val()][rng.val()] = adcPed;
 

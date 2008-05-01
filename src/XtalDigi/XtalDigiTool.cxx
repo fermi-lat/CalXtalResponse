@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/XtalDigiTool.cxx,v 1.15 2007/05/25 21:32:48 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/XtalDigi/Attic/XtalDigiTool.cxx,v 1.16 2007/08/24 16:26:21 heather Exp $
 
 /** @file
     @author Zach Fewtrell
@@ -610,9 +610,10 @@ StatusCode XtalDigiTool::fillDigi(CalDigi &calDigi) {
 
       XtalRng xRng(face,roRange[face]);
       RngIdx rngIdx(m_dat.xtalIdx, face, roRange[face]);
-      const CalibData::Ped *ped = m_calCalibSvc->getPed(rngIdx);
-      if (!ped) return StatusCode::FAILURE;
-      m_dat.ped[xRng] = ped->getAvr();
+      float ped;
+      StatusCode sc = m_calCalibSvc->getPed(rngIdx,ped);
+      if (sc.isFailure()) return StatusCode::FAILURE;
+      m_dat.ped[xRng] = ped;
   
       ////////////////////////////////////////
       // Stage 5: ADD PEDS, CHECK ADC RANGE //

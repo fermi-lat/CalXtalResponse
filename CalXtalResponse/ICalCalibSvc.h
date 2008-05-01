@@ -1,6 +1,6 @@
 #ifndef ICalCalibSvc_H
 #define ICalCalibSvc_H
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/ICalCalibSvc.h,v 1.10 2006/06/15 20:42:04 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/ICalCalibSvc.h,v 1.11 2007/03/23 17:35:03 fewtrell Exp $
 
 // LOCAL INCLUDES
 
@@ -22,7 +22,7 @@
 
 // Declaration of the interface ID ( interface id, major version,
 // minor version)
-static const InterfaceID IID_ICalCalibSvc("ICalCalibSvc", 2, 1);
+static const InterfaceID IID_ICalCalibSvc("ICalCalibSvc", 2, 2);
 
 /*! @class ICalCalibSvc
  * \brief Abstract interface for provision of GLAST LAT calorimeter calib consts
@@ -68,7 +68,11 @@ class ICalCalibSvc : virtual public IInterface {
   \param rngIdx specify xtal log, face, range
   \return null on error.
   */
-  virtual const CalibData::Ped *getPed(CalUtil::RngIdx rngIdx) = 0;
+  // virtual const CalibData::Ped *getPed(CalUtil::RngIdx rngIdx) = 0;
+
+  virtual StatusCode getPed(CalUtil::RngIdx rngIdx, float &ped)=0;
+  virtual StatusCode getPedSig(CalUtil::RngIdx rngIdx, float &sig)=0;
+
 
 
   /** \brief get Asymmetry calibration information for one xtal
