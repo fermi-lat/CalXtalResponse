@@ -297,26 +297,30 @@ StatusCode CalCalibSvc::evalFaceSignal(RngIdx rngIdx, float adcPed, float &ene) 
     }
     
     m_nEvent++;
-  double fromMissionStart = (eventHeader->time()).time();
-  int fromBtStartSec = fromMissionStart-(bt06Sec-missionSec);
-  vector<int>::iterator it_btstart = m_tempTime.begin();
-  vector<int>::iterator it_btend = m_tempTime.end();
-  vector<int>::iterator it_curtime = lower_bound(it_btstart,it_btend, fromBtStartSec/60);
-  unsigned cur_temp_idx = it_curtime - it_btstart;
-  for(int twr=1;twr<4;twr++)
-    m_cur_temp_twr[twr] = (m_cuTwrTemp[twr])[cur_temp_idx];
+ 
+  if(m_pedTempCorFile.value() != "" && m_temperatureFile.value() != ""){
+
+    double fromMissionStart = (eventHeader->time()).time();
+    int fromBtStartSec = fromMissionStart-(bt06Sec-missionSec);
+    vector<int>::iterator it_btstart = m_tempTime.begin();
+    vector<int>::iterator it_btend = m_tempTime.end();
+    vector<int>::iterator it_curtime = lower_bound(it_btstart,it_btend, fromBtStartSec/60);
+    unsigned cur_temp_idx = it_curtime - it_btstart;
+    for(int twr=1;twr<4;twr++)
+      m_cur_temp_twr[twr] = (m_cuTwrTemp[twr])[cur_temp_idx];
 
 
 
-   if ((m_nEvent == ((m_nEvent/1000) * 1000) ) ) {
+    if ((m_nEvent == ((m_nEvent/1000) * 1000) ) ) {
 
-    msglog << MSG::DEBUG << "event time in seconds from beam test start: " 
-        << fromBtStartSec 
+      msglog << MSG::DEBUG << "event time in seconds from beam test start: " 
+	     << fromBtStartSec 
                       <<" temp_twr1=" << m_cur_temp_twr[1]
 	              <<" temp_twr2=" << m_cur_temp_twr[2] 
 	              <<" temp_twr3=" << m_cur_temp_twr[3]
-        << endreq;
-   }
+	     << endreq;
+    }
+  }
     m_gotPedTime = true;
   }
 
