@@ -1,6 +1,6 @@
 #ifndef CalCalibSvc_H
 #define CalCalibSvc_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.13 2008/01/22 20:14:47 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibSvc.h,v 1.14 2008/02/27 20:22:07 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -16,6 +16,8 @@
 
 // GLAST 
 #include "CalXtalResponse/ICalCalibSvc.h"
+#include "CalUtil/CalDefs.h"
+#include "CalUtil/CalVec.h"
 
 // EXTLIB
 #include "GaudiKernel/IDataProviderSvc.h"
@@ -76,7 +78,8 @@ public:
     return m_inlMgr.getInlCIDAC(rngIdx);}
 
   /// get pedestal calibration data for given adc channel
-  const CalibData::Ped *getPed(CalUtil::RngIdx rngIdx) {return m_pedMgr.getPed(rngIdx);}
+  StatusCode getPed(CalUtil::RngIdx rngIdx, float &ped);
+  StatusCode getPedSig(CalUtil::RngIdx rngIdx, float &sig);
 
   /// get asymmetry calib data for give crystal
   const CalibData::CalAsym *getAsym(CalUtil::XtalIdx xtalIdx) {return m_asymMgr.getAsym(xtalIdx);}
@@ -150,6 +153,21 @@ private:
   /// calib flavor override for CI measured thresholds
   StringProperty m_flavorTholdCI;        
 
+  /// file with CU CAL tower temperature measurements
+  StringProperty m_temperatureFile;
+  /// file with pedestal temperature correction data
+  StringProperty m_pedTempCorFile;
+
+  ///CU temperature measurements table
+  vector<int  > m_tempTime;
+  vector<float> m_cuTwrTemp[4];
+  float m_cur_temp_twr[4];
+  int m_nEvent;
+
+  ///CU pedestal temperature correction data
+ 
+    CalUtil::CalVec<CalUtil::RngIdx, float> m_pedT0;
+    CalUtil::CalVec<CalUtil::RngIdx, float> m_pedTempCoef;
 
   /// this class is shared amongt the CalibItemMgr classes
   CalCalibShared m_ccsShared;
@@ -164,6 +182,12 @@ private:
   MPDMgr       m_mpdMgr;
   /// manage calibration data of given data type
   TholdCIMgr   m_tholdCIMgr;
+
+  IDataProviderSvc* m_eventSvc;
+
+  /// set to true when we have retrieved event time for current event.
+  bool m_gotPedTime;
+
 
   /// hook the BeginEvent so that we can check our validity once per event.
   void handle ( const Incident& inc );
