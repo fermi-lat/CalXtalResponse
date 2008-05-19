@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_PrecalcCalibTool.cxx,v 1.1 2008/01/22 20:14:51 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_PrecalcCalibTool.cxx,v 1.2 2008/03/25 16:04:57 fewtrell Exp $
 /** @file 
     @author Z.Fewtrell
 */
@@ -38,13 +38,13 @@ StatusCode test_PrecalcCalibTool::testXtal(const XtalIdx xtalIdx,
     if (precalcCalibTool.getPedSigCIDAC(rngIdx, pedSigCIDAC).isFailure())
       return StatusCode::FAILURE;
 
-    CalibData::Ped const*const ped = calCalibSvc.getPed(rngIdx);
-    if (!ped) {
+    float pedSigADC;
+    StatusCode sc = calCalibSvc.getPedSig(rngIdx,pedSigADC);
+    if (sc.isFailure()) {
       MsgStream msglog(m_msgSvc, "test_PrecalcCalibTool");   
       msglog << MSG::ERROR << "missing pedestal: " << xtalIdx.toStr() << endreq;
       return StatusCode::FAILURE;
     }
-    const float pedSigADC = ped->getSig();
 
     float testSigCIDAC;
     if (calCalibSvc.evalCIDAC(rngIdx, pedSigADC, testSigCIDAC).isFailure())

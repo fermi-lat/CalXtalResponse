@@ -1,4 +1,4 @@
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalDigi.cxx,v 1.1 2008/01/22 20:14:51 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -292,9 +292,9 @@ StatusCode test_CalDigi::checkADC(ICalSignalTool &calSignalTool,
 
       // retrieve pedestal calibration
       const RngIdx rngIdx(faceIdx, rng);
-      CalibData::Ped const*const pedCalib = calCalibSvc.getPed(rngIdx);
-      if (!pedCalib) return 0;
-      const float ped = pedCalib->getAvr();
+      float ped;
+      StatusCode sc = calCalibSvc.getPed(rngIdx,ped);
+      if (sc.isFailure()) return 0;
 
       // ped subtracted ADC
       const float adcPed = adc - ped;
