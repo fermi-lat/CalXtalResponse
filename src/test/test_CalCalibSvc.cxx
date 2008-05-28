@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalCalibSvc.cxx,v 1.1 2008/01/22 20:14:51 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalCalibSvc.cxx,v 1.2 2008/05/19 21:49:00 chehtman Exp $
 /** @file 
     @author Z.Fewtrell
 */
@@ -494,7 +494,7 @@ StatusCode test_CalCalibSvc::testMissingXtal(const XtalIdx xtalIdx,
        xRng++) {
     const RngIdx rngIdx(xtalIdx, xRng);
     float ped;
-    if (calCalibSvc.getPed(rngIdx,ped).isFailure()) {
+    if (!calCalibSvc.getPed(rngIdx,ped).isFailure()) {
       MsgStream msglog(m_msgSvc, "test_CalCalibSvc");   
       msglog << MSG::ERROR << "Ped calibrations for empty tower returned: " << rngIdx.toStr() << endreq;
       return StatusCode::FAILURE;

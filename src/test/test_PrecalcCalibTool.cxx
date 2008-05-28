@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_PrecalcCalibTool.cxx,v 1.2 2008/03/25 16:04:57 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_PrecalcCalibTool.cxx,v 1.3 2008/05/19 21:49:00 chehtman Exp $
 /** @file 
     @author Z.Fewtrell
 */
@@ -52,7 +52,10 @@ StatusCode test_PrecalcCalibTool::testXtal(const XtalIdx xtalIdx,
 
     if (!smart_compare(pedSigCIDAC, testSigCIDAC, MAX_SPLINE_DIFF)) {
       MsgStream msglog(m_msgSvc, "test_PrecalcCalibTool");   
-      msglog << MSG::ERROR << "Invalid pedestal sigma: " << rngIdx.toStr() << endreq;
+      msglog << MSG::ERROR << "Invalid pedestal sigma (cidac): " << pedSigCIDAC
+             << " " << rngIdx.toStr() 
+             << " expected: " << testSigCIDAC
+             << endreq;
       return StatusCode::FAILURE;
     }
   }

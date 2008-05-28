@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/PrecalcCalibTool.cxx,v 1.7 2008/01/22 20:14:47 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/PrecalcCalibTool.cxx,v 1.8 2008/05/17 00:08:42 chehtman Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -218,7 +218,7 @@ StatusCode PrecalcCalibTool::genLocalStore() {
 
       //  CalibData::Ped const*const ped = m_calCalibSvc->getPed(rngIdx);
       float pedsig;
-      sc = m_calCalibSvc->getPed(rngIdx,pedsig);
+      sc = m_calCalibSvc->getPedSig(rngIdx,pedsig);
       if(sc.isFailure())return sc;
       
       float sigDAC;
