@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!-- ifile for CalXtalResponse 'ideal' flavor vals (muon gain mode) -->
-<!DOCTYPE ifile SYSTEM "$(XMLBASEROOT)/xml/ifile.dtd" >
+<!DOCTYPE ifile SYSTEM "$(XMLBASEXMLPATH)/ifile.dtd" >
 
 
 <!-- ideal mode calibrations are based on measured means calibrations of real Cal flight models.
@@ -31,8 +31,8 @@ it incoperates the following improvements over the prievous version.
 -->
 
 
-<ifile cvs_Header="$Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/xml/idealCalib_muon.xml,v 1.7 2007/11/06 20:54:03 fewtrell Exp $"
- cvs_Revision="$Revision: 1.7 $" >
+<ifile cvs_Header="$Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/xml/idealCalib_muon.xml,v 1.8 2008/01/22 20:14:52 fewtrell Exp $"
+ cvs_Revision="$Revision: 1.8 $" >
 
   <section name = "PEDESTALS">
     <item name  = "VALS"    value = "510, 210, 510, 210"> 1 pedestal value per ADC range           </item>
