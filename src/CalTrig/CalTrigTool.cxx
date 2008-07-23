@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.14 2008/04/21 20:19:07 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.15 2008/05/17 00:08:43 chehtman Exp $
 
 // Include files
 
@@ -148,9 +148,9 @@ StatusCode CalTrigTool::calcGlobalTrig() {
     SmartDataPtr<Event::CalDigiCol> calDigiCol(m_evtSvc, EventModel::Digi::CalDigiCol);
     if (calDigiCol == 0) {
       MsgStream msglog(msgSvc(), name());   
-      msglog << MSG::WARNING << "Unable to retrieve cal digis (or MC) for cal trigger processing" << endreq;
+      msglog << MSG::DEBUG << "Unable to retrieve cal digis (or MC) for cal trigger processing" << endreq;
 
-      return StatusCode::FAILURE;
+      return StatusCode::SUCCESS;
     }
 
     if (calcGlobalTrigDigi(calDigiCol).isFailure())
@@ -310,7 +310,8 @@ void CalTrigTool::setSingleBit(const CalUtil::DiodeIdx diodeIdx) {
 }
 
 
-StatusCode CalTrigTool::getCALTriggerVector(const idents::CalXtalId::DiodeType diode, Event::GltDigi::CalTriggerVec &vec) {
+StatusCode CalTrigTool::getCALTriggerVector(const idents::CalXtalId::DiodeType diode, 
+                                            Event::GltDigi::CalTriggerVec &vec) {
   /// update internal tables
   StatusCode sc(calcGlobalTrig());
   if (sc.isFailure())

@@ -2,7 +2,7 @@
     Mainpage for doxygen
     @author Z.Fewtrell
 */
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.19 2007/11/06 20:53:59 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/mainpage.h,v 1.20 2008/01/22 20:14:47 fewtrell Exp $
 
 /** 
     @mainpage package CalXtalResponse
@@ -76,9 +76,8 @@
     -  IXtalDigiTool allows for the calculation of the digital response
     of one cal crystal from diode signal levels.
 
-    - ICalTrigTool generate FLE & FHE trigger response from digi info.
-    also populates GLtDigi TDS class & can run in either 1-range or 4-range
-    mode.  Can be called either per xtal or for entire Cal.
+    - ICalTrigTool generate FLE & FHE trigger response from digi or MC
+    TDS data.
 
     -  IXtalRecTool  reconstructs energy deposit intensity & centroid
     from digi information

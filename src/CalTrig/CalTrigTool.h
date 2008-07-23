@@ -1,4 +1,4 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.9 2008/02/27 20:22:08 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.10 2008/04/15 15:39:24 makeev Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -69,7 +69,8 @@ public:
   StatusCode finalize() {return StatusCode::SUCCESS;}
 
   /// \brief return 16 bit trigger vector for FLE trigger, one bit per tower
-  StatusCode getCALTriggerVector(idents::CalXtalId::DiodeType diode, Event::GltDigi::CalTriggerVec &vec);
+  StatusCode getCALTriggerVector(idents::CalXtalId::DiodeType diode, 
+                                 Event::GltDigi::CalTriggerVec &vec);
 
   /// return trigger response for given channel (specify xtal, face & diode)
   StatusCode getTriggerBit(CalUtil::DiodeIdx diodeIdx, bool &trigBit);
