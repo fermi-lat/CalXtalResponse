@@ -1,4 +1,4 @@
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalTrigTool.cxx,v 1.1 2008/01/22 20:14:51 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -130,7 +130,7 @@ StatusCode test_CalTrigTool::verifyTriggerVecs(ICalSignalTool &calSignalTool,
                                                const float tolerance) {
 
   for (DiodeNum diode; diode.isValid(); diode++) {
-    Event::GltDigi::CalTriggerVec triggerVec;
+    unsigned short triggerVec;
 
     if (calTrigTool.getCALTriggerVector(static_cast<idents::CalXtalId::DiodeType>(diode.val()), triggerVec).isFailure())
       return StatusCode::FAILURE;

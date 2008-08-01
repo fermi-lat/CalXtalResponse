@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.15 2008/05/17 00:08:43 chehtman Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.16 2008/07/23 16:20:15 fewtrell Exp $
 
 // Include files
 
@@ -311,7 +311,7 @@ void CalTrigTool::setSingleBit(const CalUtil::DiodeIdx diodeIdx) {
 
 
 StatusCode CalTrigTool::getCALTriggerVector(const idents::CalXtalId::DiodeType diode, 
-                                            Event::GltDigi::CalTriggerVec &vec) {
+                                            unsigned short &vec) {
   /// update internal tables
   StatusCode sc(calcGlobalTrig());
   if (sc.isFailure())
@@ -363,9 +363,9 @@ StatusCode CalTrigTool::calcXtalTrig(const XtalIdx xtalIdx,
     const RngIdx rngIdx(xtalIdx,
                         face, rng);
 
-	float ped;
-        StatusCode sc = m_calCalibSvc->getPed(rngIdx,ped);
-        if (sc.isFailure()) return StatusCode::FAILURE;
+    float ped;
+    StatusCode sc = m_calCalibSvc->getPed(rngIdx,ped);
+    if (sc.isFailure()) return StatusCode::FAILURE;
     const float adcPed = adc - ped;
 
     //-- eval faceSignal 
