@@ -1,12 +1,11 @@
 #ifndef CalibItemMgr_H
 #define CalibItemMgr_H
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.h,v 1.13 2008/01/22 20:14:47 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
 
 // LOCAL
-#include "IdealCalCalib.h"
 #include "CalCalibShared.h"
 
 // GLAST

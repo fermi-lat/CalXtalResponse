@@ -1,14 +1,14 @@
 #ifndef CalCalibShared_h
 #define CalCalibShared_h
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibShared.h,v 1.4 2008/01/22 20:14:47 fewtrell Exp $
 /** @file 
     @author Z.Fewtrell
 */
 
 // LOCAL INCLUDES
-#include "IdealCalCalib.h"
 
 // GLAST INCLUDES
+#include "CalUtil/SimpleCalCalib/IdealCalCalib.h"
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 
 
@@ -38,7 +38,7 @@ class CalCalibShared {
   StringProperty m_idealCalibXMLPath;
 
   /// stores 'ideal' flavor generic calibration constants
-  IdealCalCalib m_idealCalib;
+  CalUtil::IdealCalCalib m_idealCalib;
 
   /// name of CalibDataSvc, main data source
   StringProperty m_calibDataSvcName;     
