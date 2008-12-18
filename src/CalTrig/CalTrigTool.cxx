@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.16 2008/07/23 16:20:15 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.17 2008/08/01 01:45:59 fewtrell Exp $
 
 // Include files
 
@@ -215,7 +215,12 @@ StatusCode CalTrigTool::calcXtalTrigSignalTool(const XtalIdx xtalIdx) {
     sc = m_calSignalTool->getDiodeSignal(diodeIdx, signal);
     if (sc.isFailure()) return sc;
 
-    if (signal >= thresh)
+    /// get signal level
+    float trigSignal;
+    sc = m_calSignalTool->getTrigDiodeSignal(diodeIdx, trigSignal);
+    if (sc.isFailure()) return sc;
+
+    if (trigSignal >= thresh)
       setSingleBit(diodeIdx);
   }
   
