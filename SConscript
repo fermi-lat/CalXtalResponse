@@ -1,7 +1,7 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/SConscript,v 1.4 2008/12/08 21:39:43 ecephas Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/SConscript,v 1.3 2008/11/06 14:45:51 ecephas Exp $
 # Authors: zachary.fewtrell@nrl.navy.mil
-# Version: CalXtalResponse-00-23-00
+# Version: CalXtalResponse-00-21-08
 Import('baseEnv')
 Import('listFiles')
 Import('packages')
@@ -25,6 +25,7 @@ test_CalXtalResponse = progEnv.GaudiProgram('test_CalXtalResponse', listFiles(['
 
 progEnv.Tool('registerObjects', package = 'CalXtalResponse', libraries = [CalXtalResponse], testApps = [test_CalXtalResponse], 
 	includes = listFiles(['CalXtalResponse/*.h']))
+
 
 
 
