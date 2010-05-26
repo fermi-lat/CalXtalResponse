@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.cxx,v 1.4 2008/03/25 16:04:56 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.cxx,v 1.5 2008/05/17 00:08:43 chehtman Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -345,12 +345,15 @@ Event::CalXtalRecData::CalRangeRecData *XtalRecTool::createRangeRecon(const CalU
   const float meanCIDAC = sqrt(mpdCIDAC[POS_FACE]*mpdCIDAC[NEG_FACE]);
   const float ene = meanCIDAC*mpd[mpdDiode];
 
+  // just to try
+  float eneP = mpd[mpdDiode] * mpdCIDAC[POS_FACE];
+  float eneN = mpd[mpdDiode] * mpdCIDAC[NEG_FACE];
 
   ////////////////////////////////////
   //-- STEP 10: POPULATE TDS CLASS --//
   ////////////////////////////////////
-  auto_ptr<CalXtalRecData::CalRangeRecData> rngRec(new CalXtalRecData::CalRangeRecData((CalXtalId::AdcRange)rng[POS_FACE], ene, 
-                                                                                       (CalXtalId::AdcRange)rng[NEG_FACE], ene));
+  auto_ptr<CalXtalRecData::CalRangeRecData> rngRec(new CalXtalRecData::CalRangeRecData((CalXtalId::AdcRange)rng[POS_FACE], eneP, 
+                                                                                       (CalXtalId::AdcRange)rng[NEG_FACE], eneN));
   rngRec->setPosition(pXtal);
   
   return rngRec.release();
