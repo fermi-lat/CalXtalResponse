@@ -1,5 +1,5 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/SConscript,v 1.10 2010/06/04 21:14:57 burnett Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/SConscript,v 1.11 2010/06/11 00:33:52 jrb Exp $
 # Authors: zachary.fewtrell@nrl.navy.mil
 # Version: CalXtalResponse-00-24-00
 Import('baseEnv')
@@ -35,9 +35,6 @@ progEnv.Tool('registerTargets', package = 'CalXtalResponse',
              libraryCxts = [[CalXtalResponse, libEnv]],
              testAppCxts = [[test_CalXtalResponse, progEnv]], 
              includes = listFiles(['CalXtalResponse/*.h']),
-             jo = ['src/customOptions.txt', 'src/test/jobOptions.txt'])
-
-
-
-
+             jo = ['src/customOptions.txt', 'src/defaultOptions.txt',
+                   'src/test/jobOptions.txt'])
 
