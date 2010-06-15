@@ -1,5 +1,5 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/SConscript,v 1.12 2010/06/11 19:25:27 jrb Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/SConscript,v 1.13 2010/06/12 17:21:04 jrb Exp $
 # Authors: zachary.fewtrell@nrl.navy.mil
 # Version: CalXtalResponse-00-24-01
 Import('baseEnv')
@@ -35,6 +35,7 @@ progEnv.Tool('registerTargets', package = 'CalXtalResponse',
              libraryCxts = [[CalXtalResponse, libEnv]],
              testAppCxts = [[test_CalXtalResponse, progEnv]], 
              includes = listFiles(['CalXtalResponse/*.h']),
+             data = ['data/Xtalk/CU06_Neighbor_xtalk.txt'],
              jo = ['src/customOptions.txt', 'src/defaultOptions.txt',
                    'src/test/jobOptions.txt'])
 
