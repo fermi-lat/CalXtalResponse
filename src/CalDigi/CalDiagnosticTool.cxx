@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDiagnostic/CalDiagnosticTool.cxx,v 1.10 2008/01/22 20:14:48 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/CalDiagnosticTool.cxx,v 1.1 2008/02/27 20:22:07 fewtrell Exp $
 
 // Include files
 
@@ -26,8 +26,10 @@ using namespace CalUtil;
 using namespace std;
 
 
-static ToolFactory<CalDiagnosticTool> s_factory;
-const IToolFactory& CalDiagnosticToolFactory = s_factory;
+//static ToolFactory<CalDiagnosticTool> s_factory;
+//const IToolFactory& CalDiagnosticToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(CalDiagnosticTool);
+
 
 CalDiagnosticTool::CalDiagnosticTool( const std::string& type,
                                       const std::string& name,

@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.11 2008/04/21 20:19:04 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.cxx,v 1.12 2008/05/17 00:08:42 chehtman Exp $
 
 /** @file     
     @author Z.Fewtrell
@@ -37,8 +37,9 @@ using namespace CalibData;
 using namespace idents;
 using namespace std;
 
-static ToolFactory<XtalDigiTool> s_factory;
-const IToolFactory& XtalDigiToolFactory = s_factory;
+//static ToolFactory<XtalDigiTool> s_factory;
+//const IToolFactory& XtalDigiToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(XtalDigiTool);
 
 static float round_int(float in) { return floor(in + 0.5);}
 
