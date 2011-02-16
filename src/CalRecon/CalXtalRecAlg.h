@@ -1,6 +1,6 @@
 #ifndef CalXtalRecAlg_h
 #define CalXtalRecAlg_h 
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/CalXtalRecAlg.h,v 1.2 2007/11/06 20:54:00 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/CalXtalRecAlg.h,v 1.3 2008/01/22 20:14:48 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
