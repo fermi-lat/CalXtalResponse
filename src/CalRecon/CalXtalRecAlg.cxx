@@ -1,10 +1,11 @@
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/CalXtalRecAlg.cxx,v 1.2 2007/11/06 20:54:00 fewtrell Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/CalXtalRecAlg.cxx,v 1.3 2008/01/22 20:14:48 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
 
 // LOCAL INCLUDES
 #include "CalXtalRecAlg.h"
+#include "XtalRecTool.h"
 #include "../Xtalk/INeighborXtalkTool.h"
 #include "CalXtalResponse/IXtalRecTool.h"
 
@@ -145,7 +146,8 @@ StatusCode CalXtalRecAlg::execute()
     // release it from the auto_ptr so it is not deleted
     m_calXtalRecCol->push_back(recData.release());
   }
-
+    // This is where the code to deal with the ambiguity has to go.S
+  	sc = dynamic_cast<XtalRecTool*>(m_xtalRecTool)->ambiguity(m_calXtalRecCol);
 
   return StatusCode::SUCCESS;
 }

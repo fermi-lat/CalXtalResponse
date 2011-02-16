@@ -1,6 +1,6 @@
 #ifndef XtalRecTool_h
 #define XtalRecTool_h
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.h,v 1.2 2007/11/06 20:54:00 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.h,v 1.3 2008/01/22 20:14:48 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -58,6 +58,8 @@ public:
                        CalUtil::CalVec<CalUtil::FaceNum, bool> &saturated,
                        INeighborXtalkTool const*const xtalkTool=0);
 
+  /// Code to resolve ambiguity region of light asymmetry response
+  StatusCode ambiguity(Event::CalXtalRecCol* pxtalrecs);
 
 private:
   /// reconstruct for single readout (one adc range on each crytsal face)
@@ -94,6 +96,18 @@ private:
   void pos2Point(const CalUtil::XtalIdx xtalIdx,
                  const float pos, 
                  Point &pXtal) const;
+
+  /** \brief convert 3d vector position to scalar long. position in mm from xtal center 
+  */
+  void point2Pos(const idents::CalXtalId xtalId,
+                 float &pos, 
+                 const Point pXtal) const;
+
+  /** \brief convert 3d vector position to scalar transverse position in mm from Tower center 
+  */
+  void point2PosTrans(const idents::CalXtalId xtalId,
+                 float &pos, 
+                 const Point pXtal) const;
 
   /// name of CalCalibSvc to use for calib constants.
   StringProperty m_calCalibSvcName;                         
