@@ -2,6 +2,7 @@
  * Package CalXtalResponse
 * EOH *
 
+v0r23p1gr01 07/26/11 hmk   - merge SCons updates into P7 branch
 v0r23p1 09/04/09 hmk       - remove private use of IExternal/obf should no 
                              longer be necessary given changes in RootIo req
 v0r23   12/17/08 usher     - Updates to help separate trigger for overlay events
