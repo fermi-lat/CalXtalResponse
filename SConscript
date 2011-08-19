@@ -1,7 +1,7 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/SConscript,v 1.20 2011/02/16 16:57:44 usher Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/SConscript,v 1.7.14.1 2011/07/26 13:58:52 heather Exp $
 # Authors: zachary.fewtrell@nrl.navy.mil
-# Version: CalXtalResponse-00-23-01-gr01
+# Version: CalXtalResponse-00-23-01-gr02
 Import('baseEnv')
 Import('listFiles')
 Import('packages')
