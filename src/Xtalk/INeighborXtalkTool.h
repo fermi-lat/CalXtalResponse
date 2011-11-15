@@ -1,6 +1,6 @@
 #ifndef INeighborXtalkTool_h
 #define INeighborXtalkTool_h
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/INeighborXtalkTool.h,v1.3 2007/11/06 20:54:01 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/Xtalk/INeighborXtalkTool.h,v 1.4 2008/01/22 20:14:49 fewtrell Exp $
 
 /** @file
     @author Z.Fewtrell
