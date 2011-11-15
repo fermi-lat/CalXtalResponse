@@ -1,6 +1,6 @@
 #ifndef ICalCalibSvc_H
 #define ICalCalibSvc_H
-//  $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/CalXtalResponse/ICalCalibSvc.h,v 1.14 2008/05/17 00:07:14 chehtman Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/CalXtalResponse/ICalCalibSvc.h,v 1.15 2011/11/15 00:31:37 jrb Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -72,8 +72,8 @@ class ICalCalibSvc : virtual public IInterface {
   \return null on error.
   */
   //  virtual const CalibData::Ped *getPed(CalUtil::RngIdx rngIdx) = 0;
-  virtual StatusCode getPed(CalUtil::RngIdx rngIdx, float &ped)=0
-  virtual StatusCode getPedSig(CalUtil::RngIdx rngIdx, float &sig)=0
+  virtual StatusCode getPed(CalUtil::RngIdx rngIdx, float &ped)=0;
+  virtual StatusCode getPedSig(CalUtil::RngIdx rngIdx, float &sig)=0;
 
 
   /** \brief get Asymmetry calibration information for one xtal
