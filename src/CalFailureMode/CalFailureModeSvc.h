@@ -1,6 +1,6 @@
 #ifndef CalFailureModeSvc_H
 #define CalFailureModeSvc_H 1
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalFailureMode/CalFailureModeSvc.h,v 1.4 2008/01/22 20:14:48 fewtrell Exp $
 /** @file
     @author R.Dubois
 

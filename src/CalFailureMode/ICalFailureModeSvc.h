@@ -1,6 +1,6 @@
 #ifndef ICalFailureModeSvc_H
 #define ICalFailureModeSvc_H
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalFailureMode/ICalFailureModeSvc.h,v 1.3 2008/01/22 20:14:48 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 
@@ -53,4 +53,3 @@ class ICalFailureModeSvc : virtual public IInterface {
 };
 
 #endif // ICalFailureModeSvc_H
-

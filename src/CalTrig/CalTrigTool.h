@@ -1,4 +1,4 @@
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.11 2008/07/23 16:20:15 fewtrell Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalTrig/CalTrigTool.h,v 1.12 2008/08/01 01:45:59 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
