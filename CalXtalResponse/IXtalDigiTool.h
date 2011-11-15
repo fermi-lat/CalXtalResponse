@@ -1,6 +1,6 @@
 #ifndef IXtalDigiTool_H
 #define IXtalDigiTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalDigiTool.h,v 1.11 2008/02/19 20:32:43 makeev Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/CalXtalResponse/IXtalDigiTool.h,v 1.12 2008/02/21 16:19:54 makeev Exp $
 /** @file
     @author Z.Fewtrell
 */
