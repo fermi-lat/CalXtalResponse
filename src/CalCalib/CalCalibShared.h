@@ -1,6 +1,6 @@
 #ifndef CalCalibShared_h
 #define CalCalibShared_h
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalCalibShared.h,v 1.4 2008/01/22 20:14:47 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/CalCalibShared.h,v 1.5 2008/09/17 20:06:40 fewtrell Exp $
 /** @file 
     @author Z.Fewtrell
 */

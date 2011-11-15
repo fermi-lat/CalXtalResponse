@@ -1,6 +1,6 @@
 #ifndef XtalDigiTool_h
 #define XtalDigiTool_h
-//  $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalDigiTool.h,v 1.4 2008/02/19 20:32:43 makeev Exp $
+//  $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalDigi/XtalDigiTool.h,v 1.5 2008/02/21 16:20:12 makeev Exp $
 // @file
 //
 //

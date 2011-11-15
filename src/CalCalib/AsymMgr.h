@@ -1,6 +1,6 @@
 #ifndef AsymMgr_H
 #define AsymMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/AsymMgr.h,v 1.11 2007/11/06 20:54:00 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/AsymMgr.h,v 1.12 2008/01/22 20:14:47 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -103,4 +103,3 @@ private:
 
 };
 #endif
-

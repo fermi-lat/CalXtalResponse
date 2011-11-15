@@ -1,6 +1,6 @@
 #ifndef IPrecalcCalibTool_h
 #define IPrecalcCalibTool_h
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/IPrecalcCalibTool.h,v 1.5 2008/01/22 20:14:47 fewtrell Exp $
 /** @file 
     @author Z.Fewtrell
 */

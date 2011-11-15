@@ -1,6 +1,6 @@
 #ifndef MPDMgr_H
 #define MPDMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/MPDMgr.h,v 1.9 2007/11/06 20:54:00 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/MPDMgr.h,v 1.10 2008/01/22 20:14:47 fewtrell Exp $
 /** @file 
     @author Z.Fewtrell
 */
