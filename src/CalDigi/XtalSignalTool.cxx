@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalDigi/XtalSignalTool.cxx,v 1.5 2010/06/02 20:47:26 usher Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalDigi/XtalSignalTool.cxx,v 1.5.2.1 2010/10/18 20:15:55 heather Exp $
 
 /** @file implement XtalSignalTool.h
     @author Z.Fewtrell
@@ -37,8 +37,9 @@
 
 const float XtalSignalTool::m_ePerMeVInDiode = 2.77e5;
 
-static ToolFactory<XtalSignalTool> s_factory;
-const IToolFactory& XtalSignalToolFactory = s_factory;
+//static ToolFactory<XtalSignalTool> s_factory;
+//const IToolFactory& XtalSignalToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(XtalSignalTool);
 
 /// declare jobOptions properties
 XtalSignalTool::XtalSignalTool( const std::string& type,

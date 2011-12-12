@@ -1,6 +1,6 @@
 #ifndef IXtalRecTool_H
 #define IXtalRecTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.8 2007/11/06 20:53:59 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.9.360.1 2010/12/10 00:01:09 jrb Exp $
 /** @file
     @author Z.Fewtrell
 */

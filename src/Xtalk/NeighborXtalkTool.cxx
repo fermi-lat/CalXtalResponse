@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/Xtalk/NeighborXtalkTool.cxx,v 1.6 2008/05/17 00:08:43 chehtman Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/Xtalk/NeighborXtalkTool.cxx,v 1.7.2.1 2010/10/18 20:15:56 heather Exp $
 
 /** @file
     @author Z.Fewtrell
@@ -109,8 +109,9 @@ private:
 
 };
 
-static ToolFactory<NeighborXtalkTool> s_factory;
-const IToolFactory& NeighborXtalkToolFactory = s_factory;
+//static ToolFactory<NeighborXtalkTool> s_factory;
+//const IToolFactory& NeighborXtalkToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(NeighborXtalkTool);
 
 NeighborXtalkTool::NeighborXtalkTool( const string& type, 
                                       const string& name, 

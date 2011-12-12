@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.cxx,v 1.6 2010/05/26 14:03:40 usher Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalRecon/XtalRecTool.cxx,v 1.6.2.1 2010/10/18 20:15:56 heather Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -39,8 +39,9 @@ using namespace CalibData;
 using namespace idents;
 using namespace std;
 
-static ToolFactory<XtalRecTool> s_factory;
-const IToolFactory& XtalRecToolFactory = s_factory;
+//static ToolFactory<XtalRecTool> s_factory;
+//const IToolFactory& XtalRecToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(XtalRecTool);
 
 XtalRecTool::XtalRecTool( const string& type,
                           const string& name,

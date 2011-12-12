@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.21 2008/01/22 20:14:48 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalTuple/CalTupleAlg.cxx,v 1.22.308.1 2010/10/18 20:15:56 heather Exp $
 
 /** @file
     @author Z.Fewtrell
@@ -122,8 +122,9 @@ private:
   StringProperty m_xtalkToolName;
 };
 
-static const AlgFactory<CalTupleAlg>  Factory;
-const IAlgFactory& CalTupleAlgFactory = Factory;
+//static const AlgFactory<CalTupleAlg>  Factory;
+//const IAlgFactory& CalTupleAlgFactory = Factory;
+DECLARE_ALGORITHM_FACTORY(CalTupleAlg);
 
 CalTupleAlg::CalTupleAlg(const string& name, ISvcLocator* pSvcLocator) :
   Algorithm(name, pSvcLocator),

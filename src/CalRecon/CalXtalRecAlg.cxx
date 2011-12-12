@@ -1,4 +1,4 @@
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/CalXtalRecAlg.cxx,v 1.3 2008/01/22 20:14:48 fewtrell Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalRecon/CalXtalRecAlg.cxx,v 1.4 2011/02/16 10:58:29 usher Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -30,8 +30,9 @@ using namespace idents;
 using namespace std;
 using namespace CalUtil;
 
-static const AlgFactory<CalXtalRecAlg>  Factory;
-const IAlgFactory& CalXtalRecAlgFactory = Factory;
+//static const AlgFactory<CalXtalRecAlg>  Factory;
+//const IAlgFactory& CalXtalRecAlgFactory = Factory;
+DECLARE_ALGORITHM_FACTORY(CalXtalRecAlg);
 
 CalXtalRecAlg::CalXtalRecAlg(const string& name, ISvcLocator* pSvcLocator):
   Algorithm(name, pSvcLocator),

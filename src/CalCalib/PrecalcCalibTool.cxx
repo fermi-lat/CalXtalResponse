@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/PrecalcCalibTool.cxx,v 1.8 2008/05/17 00:08:42 chehtman Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/PrecalcCalibTool.cxx,v 1.9.306.1 2010/10/18 20:15:55 heather Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -20,8 +20,9 @@
 using namespace CalUtil;
 using namespace std;
 
-static ToolFactory<PrecalcCalibTool> s_factory;
-const IToolFactory& PrecalcCalibToolFactory = s_factory;
+//static ToolFactory<PrecalcCalibTool> s_factory;
+//const IToolFactory& PrecalcCalibToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(PrecalcCalibTool);
 
 /// used to represent invalid values in internal arrays.
 const float BAD_FLOAT = -999999.999999F;

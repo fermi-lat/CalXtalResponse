@@ -1,4 +1,4 @@
-// $Header: $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/CalCalibShared.cxx,v 1.3.360.1 2010/10/18 20:15:55 heather Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -32,7 +32,7 @@ StatusCode CalCalibShared::initialize(Service &service) {
   }
 
   // Query the IDataProvider interface of the CalibDataService
-  sc = calibDataSvc->queryInterface(IID_IDataProviderSvc, 
+  sc = calibDataSvc->queryInterface(IDataProviderSvc::interfaceID(), 
                                     (void**) &m_dataProviderSvc);
   if ( !sc.isSuccess() ) {
     MsgStream msglog(m_service->msgSvc(), m_service->name()); 
