@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.17 2008/08/01 01:45:59 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalTrig/CalTrigTool.cxx,v 1.19 2011/12/12 20:38:44 heather Exp $
 
 // Include files
 
@@ -39,8 +39,9 @@ using namespace CalibData;
 using namespace idents;
 
 
-static ToolFactory<CalTrigTool> s_factory;
-const IToolFactory& CalTrigToolFactory = s_factory;
+//static ToolFactory<CalTrigTool> s_factory;
+//const IToolFactory& CalTrigToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(CalTrigTool);
 
 CalTrigTool::CalTrigTool( const std::string& type,
                           const std::string& name,

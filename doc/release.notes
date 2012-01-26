@@ -2,6 +2,7 @@
  * Package CalXtalResponse
 * EOH *
 
+v0r23p1gr03 01/26/12 hmkk  - Gaudi v21r7 upgrade
 v0r23p1gr02 08/18/11 hmk   - fix up unit test JO for SCons
 v0r23p1gr01 07/26/11 hmk   - merge SCons updates into P7 branch
 v0r23p1 09/04/09 hmk       - remove private use of IExternal/obf should no 

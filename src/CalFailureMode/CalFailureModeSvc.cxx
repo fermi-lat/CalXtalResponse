@@ -2,7 +2,7 @@
 // for the CAL.
 // 
 //
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalFailureMode/CalFailureModeSvc.cxx,v 1.2 2007/11/06 20:54:00 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalFailureMode/CalFailureModeSvc.cxx,v 1.4 2011/12/12 20:38:43 heather Exp $
 //
 // Author: Richard Dubois
 /** @file     
@@ -20,8 +20,9 @@
 
 // declare the service factories for the CalFailureModeSvc
 
-static SvcFactory<CalFailureModeSvc> a_factory;
-const ISvcFactory& CalFailureModeSvcFactory = a_factory; 
+//static SvcFactory<CalFailureModeSvc> a_factory;
+//const ISvcFactory& CalFailureModeSvcFactory = a_factory; 
+DECLARE_SERVICE_FACTORY(CalFailureModeSvc);
 
 
 

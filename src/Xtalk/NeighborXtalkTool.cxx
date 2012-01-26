@@ -1,4 +1,4 @@
-//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/NeighborXtalkTool.cxx,v 1.5 2008/01/22 20:14:49 fewtrell Exp $
+//    $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/Xtalk/NeighborXtalkTool.cxx,v 1.8 2011/12/12 20:38:45 heather Exp $
 
 /** @file
     @author Z.Fewtrell
@@ -44,7 +44,7 @@ static const short INVALID_ADC = -5000;
     \note currently only deals w/ cross-talk listed as he_diode->he_diode
 
     jobOptions:
-    - txtFile - (default="$(CALXTALRESPONSEROOT)/src/Xtalk/CU06_Neighbor_xtalk.txt") input xtalk coefficients
+    - txtFile - (default="$(CALXTALRESPONSEDATAPATH)/Xtalk/CU06_Neighbor_xtalk.txt") input xtalk coefficients
     - CalCalibSvc - (default="CalCalibSvc") - source for Cal Calibrations
 */
 class NeighborXtalkTool : public AlgTool, 
@@ -109,8 +109,9 @@ private:
 
 };
 
-static ToolFactory<NeighborXtalkTool> s_factory;
-const IToolFactory& NeighborXtalkToolFactory = s_factory;
+//static ToolFactory<NeighborXtalkTool> s_factory;
+//const IToolFactory& NeighborXtalkToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(NeighborXtalkTool);
 
 NeighborXtalkTool::NeighborXtalkTool( const string& type, 
                                       const string& name, 
@@ -121,7 +122,7 @@ NeighborXtalkTool::NeighborXtalkTool( const string& type,
 {
   declareInterface<INeighborXtalkTool>(this);
 
-  declareProperty("txtFile", m_txtFilename="$(CALXTALRESPONSEROOT)/src/Xtalk/CU06_Neighbor_xtalk.txt");
+  declareProperty("txtFile", m_txtFilename="$(CALXTALRESPONSEDATAPATH)//Xtalk/CU06_Neighbor_xtalk.txt");
   declareProperty("CalCalibSvc", m_calCalibSvcName="CalCalibSvc");
   
 }

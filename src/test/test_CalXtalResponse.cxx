@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.30 2008/02/19 20:32:43 makeev Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/test/test_CalXtalResponse.cxx,v 1.32 2011/12/12 20:38:45 heather Exp $
 
 /** @file
     @author Z.Fewtrell
@@ -233,8 +233,9 @@ private:
   
 }; // class test_CalXtalResponse
 
-static const AlgFactory<test_CalXtalResponse>  Factory;
-const IAlgFactory& test_CalXtalResponseFactory = Factory;
+//static const AlgFactory<test_CalXtalResponse>  Factory;
+//const IAlgFactory& test_CalXtalResponseFactory = Factory;
+DECLARE_ALGORITHM_FACTORY(test_CalXtalResponse);
 
 namespace {
   static const CalUtil::TwrNum _fullTwrSet[] = {0, 1, 2, 3, 
@@ -304,13 +305,15 @@ StatusCode test_CalXtalResponse::initialize() {
 
 
   // obtain CalCalibSvc
-  sc = service("CalCalibSvc", "CalCalibSvc", m_calCalibSvc);
+  //sc = service("CalCalibSvc", "CalCalibSvc", m_calCalibSvc);
+  sc = service("CalCalibSvc", m_calCalibSvc);
   if (sc.isFailure()) {
     msglog << MSG::ERROR << "can't get CalCalibSvc" << endreq;
     return sc;
   }
 
-  sc = service("CalCalibSvc", "CalCalibSvcIdeal", m_calCalibSvcIdeal);
+  //sc = service("CalCalibSvc", "CalCalibSvcIdeal", m_calCalibSvcIdeal);
+  sc = service("CalCalibSvcIdeal", m_calCalibSvcIdeal);
   if (sc.isFailure()) {
     msglog << MSG::ERROR << "can't get CalCalibSvcIdeal" << endreq;
     return sc;

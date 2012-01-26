@@ -1,7 +1,8 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/SConscript,v 1.7.14.1 2011/07/26 13:58:52 heather Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/SConscript,v 1.21 2011/12/12 20:38:41 heather Exp $
 # Authors: zachary.fewtrell@nrl.navy.mil
-# Version: CalXtalResponse-00-23-01-gr02
+# Version: CalXtalResponse-00-23-01-gr03
+
 Import('baseEnv')
 Import('listFiles')
 Import('packages')
@@ -10,16 +11,16 @@ libEnv = baseEnv.Clone()
 
 libEnv.Tool('addLinkDeps', package='CalXtalResponse', toBuild='component')
 
-CalXtalResponse = libEnv.SharedLibrary('CalXtalResponse',
-                                       listFiles(['src/*.cxx',
-					'src/CalCalib/*.cxx',
-					'src/CalDigi/*.cxx',
-					'src/CalRecon/*.cxx',
-                                        'src/CalTuple/*.cxx',
-					'src/CalFailureMode/*.cxx',
-					'src/Xtalk/*.cxx',
-					'src/CalTrig/*.cxx',
-					'src/Dll/*.cxx']))
+CalXtalResponse = libEnv.ComponentLibrary('CalXtalResponse',
+                                          listFiles(['src/*.cxx',
+                                                     'src/CalCalib/*.cxx',
+                                                     'src/CalDigi/*.cxx',
+                                                     'src/CalRecon/*.cxx',
+                                                     'src/CalTuple/*.cxx',
+                                                     'src/CalFailureMode/*.cxx',
+                                                     'src/Xtalk/*.cxx',
+                                                     'src/CalTrig/*.cxx']))
+
 
 progEnv.Tool('CalXtalResponseLib')
 
