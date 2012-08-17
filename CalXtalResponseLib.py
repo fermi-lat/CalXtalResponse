@@ -1,7 +1,9 @@
-#$Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/CalXtalResponseLib.py,v 1.2 2008/11/12 19:41:49 ecephas Exp $
+#$Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/CalXtalResponseLib.py,v 1.3 2009/11/10 00:53:13 jrb Exp $
 def generate(env, **kw):
     if not kw.get('depsOnly', 0):
         env.Tool('addLibrary', library = ['CalXtalResponse'])
+        if env['PLATFORM']=='win32' and env.get('CONTAINERNAME','')=='GlastRelease':
+	    env.Tool('findPkgPath', package = 'CalXtalResponse') 
     env.Tool('CalUtilLib')
     env.Tool('CalibDataLib')
     env.Tool('GlastSvcLib')
@@ -10,5 +12,8 @@ def generate(env, **kw):
     env.Tool('ntupleWriterSvcLib')
     env.Tool('LdfEventLib')
     env.Tool('addLibrary', library = env['clhepLibs'])
+    if env['PLATFORM']=='win32' and env.get('CONTAINERNAME','')=='GlastRelease':
+        env.Tool('findPkgPath', package = 'CalibSvc') 
+        env.Tool('findPkgPath', package = 'LdfEvent') 
 def exists(env):
     return 1;
