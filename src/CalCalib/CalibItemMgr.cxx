@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.14 2008/01/22 20:14:47 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/CalibItemMgr.cxx,v 1.15 2008/03/25 16:04:56 fewtrell Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -80,6 +80,13 @@ StatusCode CalibItemMgr::initialize(const string &flavor) {
   return StatusCode::SUCCESS;
 }
 
+int CalibItemMgr::getSerNo()
+{
+	updateCalib();
+
+	return m_serNo;
+}
+
 StatusCode CalibItemMgr::updateCalib() {
   StatusCode sc;
 
@@ -99,14 +106,27 @@ StatusCode CalibItemMgr::updateCalib() {
   // for the current event.
   DataObject *pObject;
   sc = m_ccsShared.m_dataProviderSvc->retrieveObject(m_calibPath, pObject);
-  if (!sc.isFailure())
+  if (sc.isFailure())
+  {
+    // create MsgStream only when needed (for performance)
+    MsgStream msglog(m_ccsShared.m_service->msgSvc(), m_ccsShared.m_service->name()); 
+    
+    // else return error (can't find calib)
+    msglog << MSG::ERROR << "can't get " 
+           << m_calibPath << " from calib db" << endreq;
+    return sc;  
+  }
+  // Make the call to update, if necessary
+  sc = m_ccsShared.m_dataProviderSvc->updateObject(pObject);
+
+  if (!sc.isFailure() && pObject)
     m_calibBase = (CalibData::CalCalibBase *)(pObject);
   else {
     // create MsgStream only when needed (for performance)
     MsgStream msglog(m_ccsShared.m_service->msgSvc(), m_ccsShared.m_service->name()); 
     
     // else return error (can't find calib)
-    msglog << MSG::ERROR << "can't get " 
+    msglog << MSG::ERROR << "can't update " 
            << m_calibPath << " from calib db" << endreq;
     return sc;  
   }

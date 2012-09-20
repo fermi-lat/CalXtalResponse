@@ -1,6 +1,6 @@
 #ifndef CalibItemMgr_H
 #define CalibItemMgr_H
-// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/CalibItemMgr.h,v 1.14 2008/09/17 20:06:40 fewtrell Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/src/CalCalib/CalibItemMgr.h,v 1.15 2011/11/15 01:07:13 jrb Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -73,7 +73,7 @@ public:
 
   /// return serial # for current calib data
   /// return calibration data serial number from CalibSvc, or SERNO_IDEAL, SERNO_NODATA
-  int getSerNo() {return m_serNo;}
+  int getSerNo(); // {return m_serNo;}
 
 protected:
   /** \brief check calib validity period, (re)build local store if necessary
