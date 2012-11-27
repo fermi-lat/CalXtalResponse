@@ -1,6 +1,6 @@
 #ifndef IXtalRecTool_H
 #define IXtalRecTool_H
-// $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.9.360.1 2010/12/10 00:01:09 jrb Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/CalXtalResponse/IXtalRecTool.h,v 1.10 2011/12/12 20:38:41 heather Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -71,6 +71,7 @@ class IXtalRecTool : virtual public IAlgTool {
                                Event::CalXtalRecData &xtalRec,
                                CalUtil::CalVec<CalUtil::FaceNum, bool> &belowNoise,
                                CalUtil::CalVec<CalUtil::FaceNum, bool> &saturated,
+                               CalUtil::CalVec<CalUtil::FaceNum, bool> &adcSaturated,
                                INeighborXtalkTool const*const nbrXtalkTool
                                ) = 0;
 };
