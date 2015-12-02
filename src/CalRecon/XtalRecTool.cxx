@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.cxx,v 1.8 2011/12/12 20:38:44 heather Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalXtalResponse/src/CalRecon/XtalRecTool.cxx,v 1.9 2012/11/27 14:22:26 lbaldini Exp $
 /** @file
     @author Z.Fewtrell
 */
@@ -357,6 +357,8 @@ Event::CalXtalRecData::CalRangeRecData *XtalRecTool::createRangeRecon(const CalU
         sc = xtalkTool->calcXtalkCIDAC(diodeIdx, xtalkCIDAC);
         if (sc.isFailure()) return 0;
         cidac[face] -= xtalkCIDAC;
+        if ( cidac[face] <= 0 )
+            belowNoise[face] = true;
       }
   }
 
